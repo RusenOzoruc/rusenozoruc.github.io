@@ -20,13 +20,35 @@
   --font-title:'Cormorant Garamond',serif;
   --font-sans:'Josefin Sans',sans-serif;
   --font-prose:'IM Fell English',serif;
+  --card:#13141F;
 }
+
+/* MOBILE HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:101;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,9,13,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:0;backdrop-filter:blur(20px);overflow-y:auto;padding:80px 0 40px;}
+[data-theme="light"] .mobile-menu{background:rgba(242,237,228,0.98);}
+.mobile-menu.open{display:flex;}
+.mobile-menu-links{list-style:none;text-align:center;width:100%;}
+.mobile-menu-links li{border-bottom:1px solid var(--border);}
+.mobile-menu-links a{display:block;font-family:var(--font-title);font-size:clamp(22px,5vw,32px);font-weight:300;color:var(--white);text-decoration:none;padding:20px 40px;transition:color .2s;}
+.mobile-menu-links a:hover{color:var(--red-bright);}
+.mobile-menu-links a em{font-style:italic;color:var(--red-bright);}
+.mobile-menu-bottom{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.mobile-menu-social{display:flex;gap:12px;}
+.mobile-menu-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .3s;}
+.mobile-menu-social a:hover{border-color:var(--red-bright);color:var(--white);}
+.mobile-menu-social svg{width:14px;height:14px;fill:currentColor;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--ink);color:var(--white);font-family:var(--font-title);overflow-x:hidden;}
 
-#cursor{position:fixed;width:28px;height:28px;border:1px solid rgba(184,50,50,0.55);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:9999;transition:width .2s,height .2s;}
-#cursor-dot{position:fixed;width:4px;height:4px;background:var(--red-bright);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:9999;}
+#cursor{position:fixed;width:8px;height:8px;background:var(--red-bright);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:9999;transition:width .2s,height .2s;}
+#cursor-dot{display:none;}
 #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 #progress-bar{position:fixed;top:0;left:0;height:1px;background:var(--red);z-index:9999;width:0%;}
 
@@ -34,11 +56,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:fl
 nav.scrolled{background:rgba(8,9,13,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(184,50,50,0.15);}
 .nav-logo{font-family:var(--font-title);font-size:20px;font-weight:300;letter-spacing:6px;color:var(--white);text-transform:uppercase;}
 .nav-logo span{color:var(--red-bright);}
-.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
 .nav-links a{font-family:var(--font-sans);font-size:11px;letter-spacing:3px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .3s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--red);transition:width .3s;}
 .nav-links a:hover{color:var(--white);}
 .nav-links a:hover::after{width:100%;}
+
+/* DROPDOWN */
+.nav-item{position:relative;}
+.nav-item>a{display:flex;align-items:center;gap:5px;}
+.nav-item>a .nav-arrow{font-size:8px;opacity:.5;transition:transform .3s;display:inline-block;}
+.nav-item:hover>a .nav-arrow{transform:rotate(180deg);}
+.nav-dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);background:rgba(8,9,14,0.98);backdrop-filter:blur(20px);border:1px solid var(--border);min-width:540px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s,transform .25s;transform:translateX(-50%) translateY(-6px);z-index:200;display:grid;grid-template-columns:1fr 1fr;}
+.nav-item:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+.dropdown-col{padding:20px 0;}
+.dropdown-col-title{font-family:var(--font-sans);font-size:8px;letter-spacing:4px;text-transform:uppercase;padding:8px 22px 12px;border-bottom:1px solid var(--border);margin-bottom:4px;}
+.dropdown-col-title.fantasy{color:var(--red-bright);}
+.dropdown-col-title.scifi{color:var(--teal);}
+.dropdown-col-title.nonfic{color:var(--violet);}
+.dropdown-link{display:block;font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 22px;transition:all .2s;white-space:nowrap;}
+.dropdown-link:hover{color:var(--white);background:rgba(184,50,50,0.08);padding-left:28px;}
+.dropdown-link::after{display:none;}
+/* single-col dropdowns */
+.nav-dropdown.single{grid-template-columns:1fr;min-width:260px;}
+/* arrow tip */
+.nav-dropdown::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:8px;height:8px;background:rgba(8,9,14,0.98);border-left:1px solid var(--border);border-top:1px solid var(--border);rotate:45deg;}
 .nav-date{font-family:var(--font-sans);font-size:10px;letter-spacing:2px;color:rgba(122,120,138,0.45);}
 
 section{position:relative;z-index:10;min-height:100vh;}
@@ -230,9 +272,9 @@ section{position:relative;z-index:10;min-height:100vh;}
 
 /* NAV SOCIAL */
 .nav-social{display:flex;align-items:center;gap:8px;}
-.nav-social-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .3s;flex-shrink:0;}
+.nav-social-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .3s;flex-shrink:0;overflow:hidden;}
 .nav-social-link:hover{border-color:var(--red-bright);color:var(--white);background:var(--red-dim);}
-.nav-social-link svg{width:13px;height:13px;fill:currentColor;}
+.nav-social-link svg{width:13px;height:13px;fill:currentColor;flex-shrink:0;display:block;}
 
 /* SOCIAL SECTION */
 #social-section{min-height:auto;background:rgba(5,6,12,0.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);border-bottom:1px solid rgba(184,50,50,0.2);}
@@ -269,8 +311,9 @@ section{position:relative;z-index:10;min-height:100vh;}
 .social-link:hover{border-color:var(--red-bright);color:var(--white);background:var(--red-dim);}
 .social-link svg{width:15px;height:15px;fill:currentColor;}
 .footer-social-row{display:flex;gap:10px;margin-top:20px;}
-.footer-social-link{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:13px;transition:all .3s;}
+.footer-social-link{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .3s;}
 .footer-social-link:hover{border-color:var(--red-bright);color:var(--white);}
+.footer-social-link svg{width:14px;height:14px;fill:currentColor;display:block;}
 .rv-panel{display:none;}
 .rv-panel.active{display:block;}
 .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
@@ -362,8 +405,14 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
 .irl-coming{display:flex;align-items:center;justify-content:center;padding:60px 48px;text-align:center;}
 .irl-coming-text{font-family:var(--font-title);font-style:italic;font-size:20px;color:rgba(221,218,232,0.35);font-weight:300;}
 
+.hamburger{display:flex;}
+  nav{padding:18px 28px;}
+}
+
 /* ── TABLET (max 1024px) ── */
 @media(max-width:1024px){
+  .hamburger{display:flex;}
+  .nav-links,.nav-social,.nav-date{display:none;}
   .section-inner{padding:80px 32px;}
   .about-grid{grid-template-columns:1fr;gap:48px;}
   .world-grid{grid-template-columns:1fr 1fr;}
@@ -375,13 +424,13 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
   .irl-layout{grid-template-columns:1fr;}
   .irl-aside{padding:48px 32px;}
   .fiction-hero-main{padding:56px 40px;}
-  .nav-social .nav-social-link:nth-child(n+4){display:none;}
 }
 
 /* ── MOBILE (max 768px) ── */
 @media(max-width:768px){
   nav{padding:14px 20px;}
   .nav-links,.nav-social,.nav-date{display:none;}
+  .hamburger{display:flex;}
   .nav-logo{font-size:16px;letter-spacing:4px;}
   #hero{padding:0 24px;}
   .hero-title{font-size:clamp(44px,12vw,72px);letter-spacing:2px;}
@@ -494,38 +543,138 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
   <div class="nav-logo">Ruşen M. <span>Özoruç</span></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#fiction">Original Stories</a></li>
-    <li><a href="#worlds">Worldbuilding</a></li>
-    <li><a href="#reviews">Reviews</a></li>
+
+    <li class="nav-item">
+      <a href="#fiction">Original Stories <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title fantasy">✦ Fantasy</div>
+          <a href="archive-epic-fantasy.html" class="dropdown-link">High / Epic Fantasy</a>
+          <a href="archive-grimdark.html" class="dropdown-link">Grimdark</a>
+          <a href="archive-dark-fantasy.html" class="dropdown-link">Dark Fantasy</a>
+          <a href="archive-mythic-fantasy.html" class="dropdown-link">Mythic / Mythpunk</a>
+          <a href="archive-urban-fantasy.html" class="dropdown-link">Urban / Contemporary</a>
+          <a href="archive-cozy-fantasy.html" class="dropdown-link">Cozy Fantasy</a>
+          <a href="archive-romantasy.html" class="dropdown-link">Romantasy</a>
+          <a href="archive-dark-academia.html" class="dropdown-link">Dark Academia</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title scifi">◈ Sci-Fi</div>
+          <a href="archive-cyberpunk.html" class="dropdown-link">Cyberpunk</a>
+          <a href="archive-biopunk.html" class="dropdown-link">Biopunk</a>
+          <a href="archive-steampunk.html" class="dropdown-link">Steampunk / Dieselpunk</a>
+          <a href="archive-space-opera.html" class="dropdown-link">Space Opera</a>
+          <a href="archive-military-sf.html" class="dropdown-link">Military Sci-Fi</a>
+          <a href="archive-cosmic-horror.html" class="dropdown-link">Cosmic / Space Horror</a>
+          <a href="archive-dystopian.html" class="dropdown-link">Dystopian</a>
+          <a href="archive-apocalyptic.html" class="dropdown-link">Apocalyptic / Post-Ap.</a>
+          <a href="archive-social-sf.html" class="dropdown-link">Social Sci-Fi</a>
+          <a href="archive-time-travel.html" class="dropdown-link">Time Travel</a>
+          <a href="archive-alt-history.html" class="dropdown-link">Alternate History</a>
+          <a href="archive-multiverse.html" class="dropdown-link">Multiverse</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="#worlds">Worldbuilding <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown single">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title fantasy">⬡ By Type</div>
+          <a href="archive-world-fantasy.html" class="dropdown-link">Fantasy Worlds</a>
+          <a href="archive-world-scifi.html" class="dropdown-link">Science Fiction</a>
+          <a href="archive-world-hybrid.html" class="dropdown-link">Hybrid / Weird</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="#reviews">Reviews <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title fantasy">✦ Fantasy</div>
+          <a href="archive-rv-epic-fantasy.html" class="dropdown-link">High / Epic Fantasy</a>
+          <a href="archive-rv-grimdark.html" class="dropdown-link">Grimdark</a>
+          <a href="archive-rv-dark-fantasy.html" class="dropdown-link">Dark Fantasy</a>
+          <a href="archive-rv-mythic-fantasy.html" class="dropdown-link">Mythic / Mythpunk</a>
+          <a href="archive-rv-urban-fantasy.html" class="dropdown-link">Urban / Contemporary</a>
+          <a href="archive-rv-cozy-fantasy.html" class="dropdown-link">Cozy Fantasy</a>
+          <a href="archive-rv-romantasy.html" class="dropdown-link">Romantasy</a>
+          <a href="archive-rv-dark-academia.html" class="dropdown-link">Dark Academia</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title scifi">◈ Sci-Fi</div>
+          <a href="archive-rv-cyberpunk.html" class="dropdown-link">Cyberpunk</a>
+          <a href="archive-rv-space-opera.html" class="dropdown-link">Space Opera</a>
+          <a href="archive-rv-military-sf.html" class="dropdown-link">Military Sci-Fi</a>
+          <a href="archive-rv-cosmic-horror.html" class="dropdown-link">Cosmic / Space Horror</a>
+          <a href="archive-rv-dystopian.html" class="dropdown-link">Dystopian</a>
+          <a href="archive-rv-apocalyptic.html" class="dropdown-link">Apocalyptic / Post-Ap.</a>
+          <a href="archive-rv-social-sf.html" class="dropdown-link">Social Sci-Fi</a>
+          <a href="archive-rv-time-travel.html" class="dropdown-link">Time Travel</a>
+          <a href="archive-rv-alt-history.html" class="dropdown-link">Alternate History</a>
+          <a href="archive-rv-multiverse.html" class="dropdown-link">Multiverse</a>
+          <div class="dropdown-col-title nonfic" style="margin-top:12px">◉ Non-Fiction</div>
+          <a href="archive-rv-philosophy.html" class="dropdown-link">Philosophy</a>
+          <a href="archive-rv-political.html" class="dropdown-link">Political</a>
+          <a href="archive-rv-self-improvement.html" class="dropdown-link">Self Improvement</a>
+        </div>
+      </div>
+    </li>
+
     <li><a href="#irl">IRL</a></li>
     <li><a href="#subscribe" style="color:var(--red-bright)">Subscribe</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:16px;">
+  <div style="display:flex;align-items:center;gap:12px;">
     <div class="nav-social">
       <a href="https://www.instagram.com/rusenmozoruc/" target="_blank" class="nav-social-link" title="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       </a>
       <a href="https://www.tiktok.com/@rusenmozoruc" target="_blank" class="nav-social-link" title="TikTok">
-        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
       </a>
       <a href="https://www.youtube.com/@rusenmozoruc" target="_blank" class="nav-social-link" title="YouTube">
-        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
       </a>
       <a href="https://x.com/rusenmozoruc" target="_blank" class="nav-social-link" title="X">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
       <a href="https://www.goodreads.com/user/show/108624616-rusen-zoru" target="_blank" class="nav-social-link" title="Goodreads">
-        <svg viewBox="0 0 24 24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg>
       </a>
     </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-links">
+    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#fiction" onclick="closeMobileMenu()">Original <em>Stories</em></a></li>
+    <li><a href="#worlds" onclick="closeMobileMenu()">Worldbuilding</a></li>
+    <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+    <li><a href="#irl" onclick="closeMobileMenu()">IRL</a></li>
+    <li><a href="#subscribe" onclick="closeMobileMenu()" style="color:var(--red-bright)">Subscribe</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <div class="mobile-menu-social">
+      <a href="https://www.instagram.com/rusenmozoruc/" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://www.tiktok.com/@rusenmozoruc" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+      <a href="https://www.youtube.com/@rusenmozoruc" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://x.com/rusenmozoruc" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.goodreads.com/user/show/108624616-rusen-zoru" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg></a>
+    </div>
+  </div>
+</div>
 
 <section id="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">Fantasy · Science Fiction · Worldbuilding</div>
     <h1 class="hero-title">Ruşen M. <em>Özoruç</em></h1>
-    <div class="hero-divider"><span class="hero-divider-sym"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
+    <div class="hero-divider"><span class="hero-divider-sym"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
     <p class="hero-sub">I write original fiction, build worlds from scratch, and review the books that keep me up at night. The rest spills over into blog posts, essays, and YouTube videos. If you're the kind of person who stays up too late reading, you're in the right place.</p>
     <div class="hero-cta">
       <a href="#fiction" class="btn btn-red">Read Fiction</a>
@@ -540,7 +689,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="section-header">
       <span class="section-tag">The Writer</span>
       <h2 class="section-title">About <em>Me</em></h2>
-      <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
+      <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
     </div>
     <div class="about-grid">
       <div class="about-text">
@@ -552,23 +701,23 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
           <span class="section-tag" style="margin-bottom:20px">Find Me Online</span>
           <div class="about-social-cards">
             <a href="https://www.instagram.com/rusenmozoruc/" target="_blank" class="about-social-card">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               <span>Instagram</span>
             </a>
             <a href="https://www.tiktok.com/@rusenmozoruc" target="_blank" class="about-social-card">
-              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
               <span>TikTok</span>
             </a>
             <a href="https://www.youtube.com/@rusenmozoruc" target="_blank" class="about-social-card">
-              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               <span>YouTube</span>
             </a>
             <a href="https://x.com/rusenmozoruc" target="_blank" class="about-social-card">
-              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               <span>X / Twitter</span>
             </a>
             <a href="https://www.goodreads.com/user/show/108624616-rusen-zoru" target="_blank" class="about-social-card">
-              <svg viewBox="0 0 24 24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg>
               <span>Goodreads</span>
             </a>
           </div>
@@ -591,7 +740,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="section-header">
       <span class="section-tag">The Scriptorium</span>
       <h2 class="section-title">Original <em>Stories</em></h2>
-    <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
+    <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
     <p class="section-desc">Short fiction across fantasy, science fiction, and everything in between. Pick a genre and start reading.</p>
     </div>
   </div>
@@ -769,7 +918,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="section-header">
       <span class="section-tag">The Atlas</span>
       <h2 class="section-title">Original <em>Worldbuilding</em></h2>
-      <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
+      <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
       <p class="section-desc">New civilisations, strange geographies, and histories written for worlds that live only on the page. Each entry is a world still being drawn.</p>
     </div>
   </div>
@@ -783,7 +932,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="section-header">
       <span class="section-tag">The Library</span>
       <h2 class="section-title">Book <em>Reviews</em></h2>
-    <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
+    <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
     <p class="section-desc">Honest, in-depth reviews of the fiction I read and care about. No star ratings without reasoning, no summaries without opinions.</p>
     </div>
   </div>
@@ -831,6 +980,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
           <div class="fiction-nav-subs">
             <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-philosophy">Philosophy</button>
             <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-political">Political</button>
+            <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-self-improvement">Self Improvement</button>
           </div>
         </div>
       </div>
@@ -862,6 +1012,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
   <div class="rv-panel" id="rv-multiverse"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Multiverse / Parallel Universes</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p></div></div>
   <div class="rv-panel" id="rv-philosophy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--violet)">◉ Philosophy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p></div></div>
   <div class="rv-panel" id="rv-political"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--violet)">◉ Political</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p></div></div>
+  <div class="rv-panel" id="rv-self-improvement"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--violet)">◉ Self Improvement</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p></div></div>
 
 
 
@@ -906,7 +1057,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
       <input class="subscribe-input" type="email" name="EMAIL" placeholder="your@email.com" required>
       <button class="subscribe-btn" type="submit">Subscribe</button>
     </form>
-    <div class="subscribe-success" id="subscribe-success"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg> &nbsp; You're in. Welcome to the archive.</div>
+    <div class="subscribe-success" id="subscribe-success"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg> &nbsp; You're in. Welcome to the archive.</div>
     <p class="subscribe-note">No spam. No frequency commitments. Unsubscribe any time.</p>
   </div>
 </section>
@@ -962,6 +1113,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
       <ul class="footer-links">
         <li><a href="#">Philosophy</a></li>
         <li><a href="#">Political</a></li>
+        <li><a href="#">Self Improvement</a></li>
       </ul>
     </div>
     <div>
@@ -984,10 +1136,24 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
 </footer>
 
 <script>
-const cursor=document.getElementById('cursor'),dot=document.getElementById('cursor-dot');
+// MOBILE MENU
+function toggleMobileMenu(){
+  const menu=document.getElementById('mobile-menu');
+  const burger=document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+  document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+const cursor=document.getElementById('cursor');
 let mx=0,my=0,cx=0,cy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-(function ac(){cx+=(mx-cx)*.12;cy+=(my-cy)*.12;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(ac);})();
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function ac(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(ac);})();
 
 window.addEventListener('scroll',()=>{
   document.getElementById('progress-bar').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
