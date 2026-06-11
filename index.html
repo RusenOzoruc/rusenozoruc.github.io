@@ -158,14 +158,14 @@ section{position:relative;z-index:10;min-height:auto;}
 
 /* FICTION NAV SCROLLER */
 .fiction-nav-wrap{position:relative;background:rgba(8,9,14,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
-.fiction-nav{display:flex;align-items:stretch;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;}
+.fiction-nav{display:flex;align-items:stretch;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;}
 .fiction-nav::-webkit-scrollbar{display:none;}
 .fiction-nav-parent{display:flex;align-items:center;gap:0;flex-shrink:0;}
 .fiction-nav-parent-label{font-family:var(--font-sans);font-size:9px;letter-spacing:4px;text-transform:uppercase;padding:0 28px;color:var(--muted);border-right:1px solid var(--border);height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
 .fiction-nav-parent-label.fantasy-label{color:var(--red-bright);}
 .fiction-nav-parent-label.scifi-label{color:var(--teal);}
 .fiction-nav-subs{display:flex;flex-shrink:0;}
-.fiction-tab{font-family:var(--font-sans);font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:18px 22px;color:var(--muted);cursor:pointer;border:none;background:none;border-right:1px solid var(--border);transition:color .3s,background .3s;white-space:nowrap;position:relative;flex-shrink:0;}
+.fiction-tab{font-family:var(--font-sans);font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:18px 22px;color:var(--muted);cursor:pointer;border:none;background:none;border-right:1px solid var(--border);transition:color .3s,background .3s;white-space:nowrap;position:relative;flex-shrink:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .fiction-tab::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:width .3s;}
 .fiction-tab:hover{color:var(--white);background:rgba(255,255,255,0.02);}
 .fiction-tab.active{color:var(--white);}
@@ -444,6 +444,8 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
   .section-title{font-size:clamp(26px,7vw,40px);}
   .section-header{margin-bottom:16px;}
   #fiction .section-inner,#reviews .section-inner{padding:24px 20px 0;}
+  .fiction-coming{padding:32px 20px;}
+  .rv-coming{padding:32px 20px;}
   
   .about-grid{grid-template-columns:1fr;gap:36px;}
   .about-text p{font-size:18px;}
@@ -1386,18 +1388,31 @@ function introAnim(){
 }
 
 // FICTION TABS
-document.querySelectorAll('.fiction-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    const panel=tab.dataset.panel;
-    document.querySelectorAll('.fiction-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
+function activateTab(tab){
+  const panel = tab.dataset.panel || tab.dataset.rvpanel;
+  const isRv = tab.classList.contains('rv-tab');
+  if(isRv){
+    document.querySelectorAll('.rv-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.rv-panel').forEach(p=>p.classList.remove('active'));
+    const target = document.getElementById(panel);
+    if(target){ target.classList.add('active'); gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:'power2.out'}); }
+  } else {
+    document.querySelectorAll('.fiction-tab:not(.rv-tab)').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.fiction-panel').forEach(p=>p.classList.remove('active'));
-    const target=document.getElementById('panel-'+panel);
-    if(target){
-      target.classList.add('active');
-      gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.5,ease:'power2.out'});
-    }
+    const target = document.getElementById('panel-'+panel);
+    if(target){ target.classList.add('active'); gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:'power2.out'}); }
+  }
+  tab.classList.add('active');
+}
+
+let tabTouchMoved = false;
+document.querySelectorAll('.fiction-tab').forEach(tab=>{
+  tab.addEventListener('touchstart', ()=>{ tabTouchMoved=false; }, {passive:true});
+  tab.addEventListener('touchmove', ()=>{ tabTouchMoved=true; }, {passive:true});
+  tab.addEventListener('touchend', e=>{
+    if(!tabTouchMoved){ e.preventDefault(); activateTab(tab); }
   });
+  tab.addEventListener('click', ()=>{ activateTab(tab); });
 });
 
 // NAV SCROLLERS — arrows + live thumb
@@ -1428,18 +1443,6 @@ function initNavScroller(navId, thumbId){
 }
 initNavScroller('stories-nav','stories-nav-thumb');
 initNavScroller('reviews-nav','reviews-nav-thumb');
-document.querySelectorAll('.rv-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    const panel=tab.dataset.rvpanel;
-    document.querySelectorAll('.rv-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelectorAll('.rv-panel').forEach(p=>p.classList.remove('active'));
-    const target=document.getElementById(panel);
-    if(target){
-      target.classList.add('active');
-      gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.5,ease:'power2.out'});
-    }
-  });
 });
 // SUBSCRIBE FORM
 function handleSubscribe(e){
