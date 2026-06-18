@@ -1175,7 +1175,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <h2 class="subscribe-title">Join the <em>Archive</em></h2>
     <p class="subscribe-desc">When I write something worth reading, I'll send it straight to your inbox. New stories, reviews, worldbuilding entries and blog posts — no noise, just the good stuff.</p>
     <!-- Replace the action URL below with your Mailchimp form action URL -->
-    <form class="subscribe-form" id="subscribe-form" action="YOUR_MAILCHIMP_URL_HERE" method="post" target="_blank" onsubmit="handleSubscribe(event)">
+    <form class="subscribe-form" id="subscribe-form" action="https://buttondown.email/api/emails/embed-subscribe/rusenmozoruc" method="post" target="_blank" onsubmit="handleSubscribe(event)">
       <input class="subscribe-input" type="email" name="EMAIL" placeholder="your@email.com" required>
       <button class="subscribe-btn" type="submit">Subscribe</button>
     </form>
@@ -1561,7 +1561,7 @@ initNavScroller('reviews-nav','reviews-nav-thumb');
 function handleSubscribe(e){
   const form=document.getElementById('subscribe-form');
   const success=document.getElementById('subscribe-success');
-  if(form.action.includes('YOUR_MAILCHIMP_URL_HERE')){
+  if(form.action.includes('https://buttondown.email/api/emails/embed-subscribe/rusenmozoruc')){
     e.preventDefault();
     showToast('Add your Mailchimp URL to the form to enable signups');
     return;
