@@ -1176,7 +1176,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <p class="subscribe-desc">When I write something worth reading, I'll send it straight to your inbox. New stories, reviews, worldbuilding entries and blog posts — no noise, just the good stuff.</p>
     <!-- Replace the action URL below with your Mailchimp form action URL -->
     <form class="subscribe-form" id="subscribe-form" action="https://buttondown.email/api/emails/embed-subscribe/rusenmozoruc" method="post" target="_blank" onsubmit="handleSubscribe(event)">
-      <input class="subscribe-input" type="email" name="EMAIL" placeholder="your@email.com" required>
+      <input class="subscribe-input" type="email" name="email" placeholder="your@email.com" required>
       <button class="subscribe-btn" type="submit">Subscribe</button>
     </form>
     <div class="subscribe-success" id="subscribe-success"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg> &nbsp; You're in. Welcome to the archive.</div>
@@ -1559,13 +1559,7 @@ initNavScroller('reviews-nav','reviews-nav-thumb');
 
 // SUBSCRIBE FORM
 function handleSubscribe(e){
-  const form=document.getElementById('subscribe-form');
   const success=document.getElementById('subscribe-success');
-  if(form.action.includes('https://buttondown.email/api/emails/embed-subscribe/rusenmozoruc')){
-    e.preventDefault();
-    showToast('Add your Mailchimp URL to the form to enable signups');
-    return;
-  }
   success.style.display='block';
   gsap.fromTo(success,{opacity:0,y:8},{opacity:1,y:0,duration:.5});
 }
