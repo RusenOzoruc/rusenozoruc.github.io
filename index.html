@@ -1134,7 +1134,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
             <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-urban-fantasy">Urban / Contemporary</button>
             <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-cozy-fantasy">Cozy Fantasy</button>
             <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-romantasy">Romantasy</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-dark-academia">Dark Academia</button>
+            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-dark-academia" class="fiction-tab rv-tab active" style="color:var(--red-bright)">Dark Academia</button>
           </div>
         </div>
         <div class="fiction-divider"></div>
@@ -1172,14 +1172,49 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="fiction-nav-track"><div class="fiction-nav-thumb" id="reviews-nav-thumb"></div></div>
   </div>
 
-  <div class="rv-panel active" id="rv-epic-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ High / Epic Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-epic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
+  <div class="rv-panel active" id="rv-latest">
+  <div class="fiction-hero">
+    <div class="fiction-hero-main">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">◉ Most Recent</span>
+      <h3 class="fiction-title">The Daily Stoic</h3>
+      <p class="fiction-excerpt">The Daily Stoic is not the most rigorous introduction to Stoicism you will find, and it knows that. What it is, is consistent — and consistency is the point.</p>
+      <div class="fiction-meta-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Ryan Holiday</span>
+        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">·</span>
+        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">★★★★★</span>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+        <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="btn btn-red">Read Review</a>
+      </div>
+    </div>
+    <div class="fiction-sidebar">
+      <div class="sidebar-header">All Recent Reviews</div>
+      <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="fiction-item">
+        <span class="fiction-item-num">1</span>
+        <div class="fiction-item-body">
+          <div class="fiction-item-title">The Daily Stoic</div>
+          <div class="fiction-item-sub" style="color:var(--muted);">Ryan Holiday · ★★★★★</div>
+        </div>
+      </a>
+      <a href="review-katabasis.html" class="fiction-item">
+        <span class="fiction-item-num">2</span>
+        <div class="fiction-item-body">
+          <div class="fiction-item-title">Katabasis</div>
+          <div class="fiction-item-sub" style="color:var(--muted);">R.F. Kuang · ★★★☆☆</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+  <div class="rv-panel" id="rv-epic-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ High / Epic Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-epic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
   <div class="rv-panel" id="rv-grimdark"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Grimdark</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-grimdark.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
   <div class="rv-panel" id="rv-dark-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Dark Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-dark-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
   <div class="rv-panel" id="rv-mythic-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Mythic / Mythpunk</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-mythic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
   <div class="rv-panel" id="rv-urban-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Urban / Contemporary Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-urban-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
   <div class="rv-panel" id="rv-cozy-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Cozy Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-cozy-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
   <div class="rv-panel" id="rv-romantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Romantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-romantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel active" id="rv-dark-academia">
+  <div class="rv-panel" id="rv-dark-academia">
   <div class="fiction-hero">
     <div class="fiction-hero-main">
       <span class="fiction-coming-label" style="color:var(--red-bright)">◉ Dark Academia</span>
@@ -1248,7 +1283,8 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
   </div>
 </div>
   <div class="rv-panel" id="rv-political"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--violet)">◉ Political</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-political.html" class="fiction-archive-link" style="color:var(--violet);border-color:var(--violet)">View Archive →</a></div></div>
- <div class="rv-panel" id="rv-self-improvement">
+
+  <div class="rv-panel" id="rv-self-improvement">
   <div class="fiction-hero">
     <div class="fiction-hero-main">
       <span class="fiction-coming-label" style="color:var(--violet)">◉ Self Improvement</span>
