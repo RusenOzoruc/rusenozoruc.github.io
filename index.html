@@ -131,14 +131,14 @@ nav.scrolled{background:rgba(8,9,13,0.82);backdrop-filter:blur(20px);-webkit-bac
 .nav-item>a{display:flex;align-items:center;gap:5px;}
 .nav-item>a .nav-arrow{font-size:8px;opacity:.5;transition:transform .3s;display:inline-block;}
 .nav-item:hover>a .nav-arrow{transform:rotate(180deg);}
-.nav-dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);background:rgba(8,9,14,0.98);backdrop-filter:blur(20px);border:1px solid var(--border);min-width:540px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s,transform .25s;transform:translateX(-50%) translateY(-6px);z-index:200;display:grid;grid-template-columns:1fr 1fr;}
+.nav-dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);background:rgba(8,9,14,0.98);backdrop-filter:blur(20px);border:1px solid var(--border);min-width:200px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s,transform .25s;transform:translateX(-50%) translateY(-6px);z-index:200;display:grid;grid-template-columns:1fr;}
 .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
-.dropdown-col{padding:20px 0;}
-.dropdown-col-title{font-family:var(--font-sans);font-size:8px;letter-spacing:4px;text-transform:uppercase;padding:8px 22px 12px;border-bottom:1px solid var(--border);margin-bottom:4px;}
+.dropdown-col{padding:20px 0;text-align:center;}
+.dropdown-col-title{font-family:var(--font-sans);font-size:8px;letter-spacing:4px;text-transform:uppercase;padding:8px 22px 12px;border-bottom:1px solid var(--border);margin-bottom:4px;text-align:center;}
 .dropdown-col-title.fantasy{color:var(--red-bright);}
 .dropdown-col-title.scifi{color:var(--teal);}
 .dropdown-col-title.nonfic{color:var(--violet);}
-.dropdown-link{display:block;font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 22px;transition:all .2s;white-space:nowrap;}
+.dropdown-link{display:block;font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 22px;transition:all .2s;white-space:nowrap;text-align:center;}
 .dropdown-link:hover{color:var(--white);background:rgba(184,50,50,0.08);padding-left:28px;}
 .dropdown-link::after{display:none;}
 /* single-col dropdowns */
@@ -174,7 +174,7 @@ section{position:relative;z-index:10;min-height:auto;}
   box-sizing:border-box;
 }
 .hero-eyebrow{font-family:var(--font-sans);font-size:10px;letter-spacing:6px;color:var(--red-bright);text-transform:uppercase;margin-bottom:28px;opacity:0;}
-.hero-title{font-family:'KenjoII',var(--font-title);font-size:clamp(20px,4vw,70px);font-weight:300;line-height:.92;letter-spacing:3px;color:var(--white);margin-bottom:0;opacity:0;width:100%;}
+.hero-title{font-family:'KenjoII',var(--font-title);font-size:clamp(20px,5.5vw,90px);font-weight:300;line-height:.92;letter-spacing:3px;color:var(--white);margin-bottom:0;opacity:0;width:100%;white-space:nowrap;}
 .hero-title em{font-style:italic;color:var(--red-bright);}
 .hero-divider{display:flex;align-items:center;gap:20px;margin:28px auto;width:340px;opacity:0;}
 .hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border-hi),transparent);}
@@ -195,7 +195,7 @@ section{position:relative;z-index:10;min-height:auto;}
 .section-inner{max-width:1160px;margin:0 auto;padding:100px 40px;}
 .section-header{text-align:center;margin-bottom:56px;}
 .section-tag{font-family:var(--font-sans);font-size:9px;letter-spacing:5px;color:var(--red-bright);text-transform:uppercase;display:block;margin-bottom:14px;text-align:center;}
-.section-title{font-family:var(--font-title);font-size:clamp(30px,4vw,56px);font-weight:300;color:var(--white);line-height:1;letter-spacing:1px;text-align:center;}
+.section-title{font-family:var(--font-title);font-size:clamp(34px,4.5vw,62px);font-weight:300;color:var(--white);line-height:1;letter-spacing:1px;text-align:center;}
 .section-title em{font-style:italic;color:var(--red-bright);}
 .section-rule{display:flex;align-items:center;justify-content:center;gap:18px;margin:18px auto 0;max-width:320px;}
 .section-rule::before,.section-rule::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -221,8 +221,8 @@ section{position:relative;z-index:10;min-height:auto;}
 .genre-tag.active{border-color:rgba(184,50,50,0.4);color:var(--red-bright);background:var(--red-dim);}
 
 /* FICTION NAV SCROLLER */
-.fiction-nav-wrap{position:relative;background:rgba(8,9,14,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
-.fiction-nav{display:flex;align-items:stretch;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;}
+.fiction-nav-wrap{position:relative;background:rgba(8,9,14,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;justify-content:center;}
+.fiction-nav{display:flex;align-items:stretch;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;justify-content:center;}
 .fiction-nav::-webkit-scrollbar{display:none;}
 .fiction-nav-parent{display:flex;align-items:center;gap:0;flex-shrink:0;}
 .fiction-nav-parent-label{font-family:var(--font-sans);font-size:9px;letter-spacing:4px;text-transform:uppercase;padding:0 28px;color:var(--muted);border-right:1px solid var(--border);height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
@@ -276,9 +276,9 @@ section{position:relative;z-index:10;min-height:auto;}
 .fiction-desc{font-family:var(--font-title);font-size:18px;line-height:1.8;color:rgba(221,218,232,0.5);max-width:500px;margin-bottom:32px;font-weight:300;}
 .fiction-sidebar{display:flex;flex-direction:column;}
 .sidebar-header{padding:24px 32px;border-bottom:1px solid var(--border);font-family:var(--font-sans);font-size:9px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
-.fiction-item{padding:20px 32px;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:background .3s;}
+.fiction-item{padding:20px 32px;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:background .3s;text-decoration:none;color:var(--white);display:flex;align-items:center;gap:16px;}
 .fiction-item:hover{background:rgba(255,255,255,0.03);}
-.fiction-item-num{font-family:var(--font-title);font-size:28px;font-weight:300;line-height:1;display:block;}
+.fiction-item-num{font-family:var(--font-title);font-size:28px;font-weight:300;line-height:1;display:block;color:rgba(184,50,50,0.3);}
 .fantasy-num{color:rgba(184,50,50,0.2);}
 .scifi-num{color:rgba(59,191,176,0.15);}
 .fiction-item-title{font-family:var(--font-title);font-size:18px;font-weight:400;color:var(--white);margin:5px 0 3px;}
@@ -361,7 +361,7 @@ section{position:relative;z-index:10;min-height:auto;}
 .subscribe-tag{font-family:var(--font-sans);font-size:9px;letter-spacing:5px;color:var(--red-bright);text-transform:uppercase;display:block;margin-bottom:16px;}
 .subscribe-title{font-family:var(--font-title);font-size:clamp(28px,4vw,52px);font-weight:300;color:var(--white);line-height:1;margin-bottom:16px;}
 .subscribe-title em{font-style:italic;color:var(--red-bright);}
-.subscribe-desc{font-family:var(--font-title);font-style:italic;font-size:20px;color:rgba(221,218,232,0.55);font-weight:300;line-height:1.7;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;}
+.subscribe-desc{font-family:var(--font-title);font-style:italic;font-size:22px;color:rgba(221,218,232,0.55);font-weight:300;line-height:1.7;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;}
 .subscribe-form{display:flex;gap:0;max-width:480px;margin:0 auto 16px;}
 .subscribe-input{flex:1;font-family:var(--font-sans);font-size:11px;letter-spacing:1px;padding:14px 20px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-right:none;color:var(--white);outline:none;transition:border-color .3s;}
 .subscribe-input::placeholder{color:var(--muted);}
@@ -431,7 +431,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
 .footer-col-title{font-family:var(--font-sans);font-size:9px;letter-spacing:3px;color:var(--red-bright);text-transform:uppercase;margin-bottom:18px;}
 .footer-links{list-style:none;}
 .footer-links li{margin-bottom:10px;}
-.footer-links a{font-family:var(--font-title);font-size:16px;font-weight:300;color:var(--muted);text-decoration:none;transition:color .3s;}
+.footer-links a{font-family:var(--font-title);font-size:18px;font-weight:300;color:var(--muted);text-decoration:none;transition:color .3s;}
 .footer-links a:hover{color:var(--white);}
 .footer-bottom{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
 .footer-copy{font-family:var(--font-sans);font-size:9px;color:rgba(122,120,138,0.3);letter-spacing:1px;text-transform:uppercase;}
@@ -465,7 +465,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
 /* EMPTY STATES */
 .fiction-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;gap:16px;background:rgba(9,10,18,0.7);border-bottom:1px solid var(--border);}
 .fiction-coming-label{font-family:var(--font-sans);font-size:10px;letter-spacing:4px;text-transform:uppercase;}
-.fiction-coming-text{font-family:var(--font-title);font-style:italic;font-size:20px;color:rgba(221,218,232,0.35);font-weight:300;max-width:420px;line-height:1.7;}
+.fiction-coming-text{font-family:var(--font-title);font-style:italic;font-size:22px;color:rgba(221,218,232,0.35);font-weight:300;max-width:420px;line-height:1.7;}
 .worlds-coming{display:flex;align-items:center;justify-content:center;padding:80px 40px;background:rgba(7,8,14,0.6);text-align:center;}
 .worlds-coming-text{font-family:var(--font-title);font-style:italic;font-size:20px;color:rgba(221,218,232,0.35);font-weight:300;}
 .irl-coming{display:flex;align-items:center;justify-content:center;padding:60px 48px;text-align:center;}
@@ -643,42 +643,22 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
       <a href="#fiction">Original Stories <span class="nav-arrow">▾</span></a>
       <div class="nav-dropdown">
         <div class="dropdown-col">
-          <div class="dropdown-col-title fantasy">✦ Fantasy</div>
-          <a href="archive-epic-fantasy.html" class="dropdown-link">High / Epic Fantasy</a>
-          <a href="archive-grimdark.html" class="dropdown-link">Grimdark</a>
-          <a href="archive-dark-fantasy.html" class="dropdown-link">Dark Fantasy</a>
-          <a href="archive-mythic-fantasy.html" class="dropdown-link">Mythic / Mythpunk</a>
-          <a href="archive-urban-fantasy.html" class="dropdown-link">Urban / Contemporary</a>
-          <a href="archive-cozy-fantasy.html" class="dropdown-link">Cozy Fantasy</a>
-          <a href="archive-romantasy.html" class="dropdown-link">Romantasy</a>
-          <a href="archive-dark-academia.html" class="dropdown-link">Dark Academia</a>
-        </div>
-        <div class="dropdown-col">
-          <div class="dropdown-col-title scifi">◈ Sci-Fi</div>
-          <a href="archive-cyberpunk.html" class="dropdown-link">Cyberpunk</a>
-          <a href="archive-biopunk.html" class="dropdown-link">Biopunk</a>
-          <a href="archive-steampunk.html" class="dropdown-link">Steampunk / Dieselpunk</a>
-          <a href="archive-space-opera.html" class="dropdown-link">Space Opera</a>
-          <a href="archive-military-sf.html" class="dropdown-link">Military Sci-Fi</a>
-          <a href="archive-cosmic-horror.html" class="dropdown-link">Cosmic / Space Horror</a>
-          <a href="archive-dystopian.html" class="dropdown-link">Dystopian</a>
-          <a href="archive-apocalyptic.html" class="dropdown-link">Apocalyptic / Post-Ap.</a>
-          <a href="archive-social-sf.html" class="dropdown-link">Social Sci-Fi</a>
-          <a href="archive-time-travel.html" class="dropdown-link">Time Travel</a>
-          <a href="archive-alt-history.html" class="dropdown-link">Alternate History</a>
-          <a href="archive-multiverse.html" class="dropdown-link">Multiverse</a>
+          <div class="dropdown-col-title">Original Stories</div>
+          <a href="archive-fantasy.html" class="dropdown-link">Fantasy</a>
+          <a href="archive-scifi.html" class="dropdown-link">Science Fiction</a>
+          <a href="archive-other.html" class="dropdown-link">Other</a>
         </div>
       </div>
     </li>
 
     <li class="nav-item">
       <a href="#worlds">Worldbuilding <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown single">
+      <div class="nav-dropdown">
         <div class="dropdown-col">
-          <div class="dropdown-col-title fantasy">⬡ By Type</div>
+          <div class="dropdown-col-title">Worldbuilding</div>
           <a href="archive-world-fantasy.html" class="dropdown-link">Fantasy Worlds</a>
+          <a href="archive-world-althistory.html" class="dropdown-link">Alternate History</a>
           <a href="archive-world-scifi.html" class="dropdown-link">Science Fiction</a>
-          <a href="archive-world-hybrid.html" class="dropdown-link">Hybrid / Weird</a>
         </div>
       </div>
     </li>
@@ -687,33 +667,11 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
       <a href="#reviews">Reviews <span class="nav-arrow">▾</span></a>
       <div class="nav-dropdown">
         <div class="dropdown-col">
-          <div class="dropdown-col-title fantasy">✦ Fantasy</div>
-          <a href="archive-rv-epic-fantasy.html" class="dropdown-link">High / Epic Fantasy</a>
-          <a href="archive-rv-grimdark.html" class="dropdown-link">Grimdark</a>
-          <a href="archive-rv-dark-fantasy.html" class="dropdown-link">Dark Fantasy</a>
-          <a href="archive-rv-mythic-fantasy.html" class="dropdown-link">Mythic / Mythpunk</a>
-          <a href="archive-rv-urban-fantasy.html" class="dropdown-link">Urban / Contemporary</a>
-          <a href="archive-rv-cozy-fantasy.html" class="dropdown-link">Cozy Fantasy</a>
-          <a href="archive-rv-romantasy.html" class="dropdown-link">Romantasy</a>
-          <a href="archive-rv-dark-academia.html" class="dropdown-link">Dark Academia</a>
-        </div>
-        <div class="dropdown-col">
-          <div class="dropdown-col-title scifi">◈ Sci-Fi</div>
-          <a href="archive-rv-cyberpunk.html" class="dropdown-link">Cyberpunk</a>
-          <a href="archive-rv-space-opera.html" class="dropdown-link">Space Opera</a>
-          <a href="archive-rv-military-sf.html" class="dropdown-link">Military Sci-Fi</a>
-          <a href="archive-rv-cosmic-horror.html" class="dropdown-link">Cosmic / Space Horror</a>
-          <a href="archive-rv-dystopian.html" class="dropdown-link">Dystopian</a>
-          <a href="archive-rv-apocalyptic.html" class="dropdown-link">Apocalyptic / Post-Ap.</a>
-          <a href="archive-rv-social-sf.html" class="dropdown-link">Social Sci-Fi</a>
-          <a href="archive-rv-time-travel.html" class="dropdown-link">Time Travel</a>
-          <a href="archive-rv-alt-history.html" class="dropdown-link">Alternate History</a>
-          <a href="archive-rv-multiverse.html" class="dropdown-link">Multiverse</a>
-          <div class="dropdown-col-title nonfic" style="margin-top:12px">◉ Non-Fiction</div>
-          <a href="archive-rv-philosophy.html" class="dropdown-link">Philosophy</a>
-          <a href="archive-rv-political.html" class="dropdown-link">Political</a>
-          <a href="archive-rv-self-improvement.html" class="dropdown-link">Self Improvement</a>
-          <a href="archive-rv-worldbuilding.html" class="dropdown-link">Worldbuilding Books</a>
+          <div class="dropdown-col-title">Book Reviews</div>
+          <a href="archive-rv-fantasy.html" class="dropdown-link">Fantasy</a>
+          <a href="archive-rv-scifi.html" class="dropdown-link">Science Fiction</a>
+          <a href="archive-rv-nonfiction.html" class="dropdown-link">Non-Fiction</a>
+          <a href="archive-rv-other.html" class="dropdown-link">Other</a>
         </div>
       </div>
     </li>
@@ -836,241 +794,141 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="section-header">
       <span class="section-tag">The Scriptorium</span>
       <h2 class="section-title">Original <em>Stories</em></h2>
-      <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
-      <p class="section-desc">Short fiction across fantasy, science fiction, and everything in between. Pick a genre and start reading.</p>
+      <div class="section-rule"><span class="rule-gem">✦</span></div>
+      <p class="section-desc">Short fiction across fantasy, science fiction, and everything in between.</p>
     </div>
   </div>
 
-<div class="mobile-genre-grid" id="mobile-fiction-grid">
-  <div class="mobile-genre-section">
-    <span class="mobile-genre-section-label fantasy">✦ Fantasy</span>
-    <div class="mobile-genre-grid-inner"><a href="archive-epic-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">High / Epic Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-grimdark.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Grimdark</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-dark-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Dark Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-mythic-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Mythic / Mythpunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-urban-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Urban / Contemporary</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-cozy-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Cozy Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-romantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Romantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-dark-academia.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Dark Academia</div><div class="mobile-genre-card-arrow">Browse →</div></a></div>
-  </div>
-  <div class="mobile-genre-divider"></div>
-  <div class="mobile-genre-section">
-    <span class="mobile-genre-section-label scifi">◈ Sci-Fi</span>
-    <div class="mobile-genre-grid-inner"><a href="archive-cyberpunk.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Cyberpunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-biopunk.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Biopunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-steampunk.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Steampunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-space-opera.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Space Opera</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-military-sf.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Military Sci-Fi</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-cosmic-horror.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Cosmic Horror</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-dystopian.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Dystopian</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-apocalyptic.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Apocalyptic</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-social-sf.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Social Sci-Fi</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-time-travel.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Time Travel</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-alt-history.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Alternate History</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-multiverse.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Multiverse</div><div class="mobile-genre-card-arrow">Browse →</div></a></div>
-  </div>
-</div>
-
-  <!-- TAB NAV -->
   <div class="fiction-nav-wrap" id="stories-nav-wrap">
-    <div style="position:relative;">
-      <div class="fiction-nav-fade-l"></div>
-      <div class="fiction-nav-arrow fiction-nav-arrow-l" data-nav="stories-nav">‹</div>
-      <div class="fiction-nav" id="stories-nav">
-        <div class="fiction-nav-parent">
-          <span class="fiction-nav-parent-label fantasy-label">⬡ Fantasy</span>
-          <div class="fiction-nav-subs">
-            <button class="fiction-tab fantasy-tab active" data-panel="epic-fantasy">High / Epic</button>
-            <button class="fiction-tab fantasy-tab" data-panel="grimdark">Grimdark</button>
-            <button class="fiction-tab fantasy-tab" data-panel="dark-fantasy">Dark Fantasy</button>
-            <button class="fiction-tab fantasy-tab" data-panel="mythic-fantasy">Mythic / Mythpunk</button>
-            <button class="fiction-tab fantasy-tab" data-panel="urban-fantasy">Urban / Contemporary</button>
-            <button class="fiction-tab fantasy-tab" data-panel="cozy-fantasy">Cozy Fantasy</button>
-            <button class="fiction-tab fantasy-tab" data-panel="romantasy">Romantasy</button>
-            <button class="fiction-tab fantasy-tab" data-panel="dark-academia">Dark Academia</button>
-          </div>
-        </div>
-        <div class="fiction-divider"></div>
-        <div class="fiction-nav-parent">
-          <span class="fiction-nav-parent-label scifi-label">◈ Sci-Fi</span>
-          <div class="fiction-nav-subs">
-            <button class="fiction-tab scifi-tab" data-panel="cyberpunk">Cyberpunk</button>
-            <button class="fiction-tab scifi-tab" data-panel="biopunk">Biopunk</button>
-            <button class="fiction-tab scifi-tab" data-panel="steampunk">Steampunk / Dieselpunk</button>
-            <button class="fiction-tab scifi-tab" data-panel="space-opera">Space Opera</button>
-            <button class="fiction-tab scifi-tab" data-panel="military-sf">Military Sci-Fi</button>
-            <button class="fiction-tab scifi-tab" data-panel="cosmic-horror">Cosmic / Space Horror</button>
-            <button class="fiction-tab scifi-tab" data-panel="dystopian">Dystopian</button>
-            <button class="fiction-tab scifi-tab" data-panel="apocalyptic">Apocalyptic / Post-Ap.</button>
-            <button class="fiction-tab scifi-tab" data-panel="social-sf">Social Sci-Fi</button>
-            <button class="fiction-tab scifi-tab" data-panel="time-travel">Time Travel</button>
-            <button class="fiction-tab scifi-tab" data-panel="alt-history">Alternate History</button>
-            <button class="fiction-tab scifi-tab" data-panel="multiverse">Multiverse</button>
-          </div>
+    <div class="fiction-nav" id="stories-nav">
+      <div class="fiction-nav-parent">
+        <div class="fiction-nav-subs">
+          <button class="fiction-tab active" data-panel="latest-stories" style="color:var(--red-bright)">Latest</button>
+          <button class="fiction-tab" data-panel="fantasy-stories" style="color:var(--red-bright)">Fantasy</button>
+          <button class="fiction-tab" data-panel="scifi-stories" style="color:var(--teal)">Science Fiction</button>
+          <button class="fiction-tab" data-panel="other-stories" style="color:var(--violet)">Other</button>
         </div>
       </div>
-      <div class="fiction-nav-fade-r"></div>
-      <div class="fiction-nav-arrow fiction-nav-arrow-r" data-nav="stories-nav">›</div>
-    </div>
-    <div class="fiction-nav-track"><div class="fiction-nav-thumb" id="stories-nav-thumb"></div></div>
-  </div>
-
-
-  <div class="fiction-panel active" id="panel-epic-fantasy">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">High / Epic Fantasy</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-epic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-grimdark">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Grimdark</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-grimdark.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-dark-fantasy">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Dark Fantasy</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-dark-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-mythic-fantasy">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Mythic / Mythpunk</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-mythic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-urban-fantasy">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Urban / Contemporary</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-urban-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-cozy-fantasy">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Cozy Fantasy</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-cozy-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-romantasy">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Romantasy</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-romantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-dark-academia">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">Dark Academia</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-dark-academia.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-cyberpunk">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Cyberpunk</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-cyberpunk.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-biopunk">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Biopunk</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-biopunk.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-steampunk">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Steampunk / Dieselpunk</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-steampunk.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-space-opera">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Space Opera</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-space-opera.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-military-sf">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Military Sci-Fi</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-military-sf.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-cosmic-horror">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Cosmic / Space Horror</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-cosmic-horror.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-dystopian">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Dystopian Fiction</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-dystopian.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-apocalyptic">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Apocalyptic / Post-Ap.</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-apocalyptic.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-social-sf">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Social Sci-Fi</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-social-sf.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-time-travel">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Time Travel</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-time-travel.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-alt-history">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Alternate History</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-alt-history.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
-    </div>
-  </div>  <div class="fiction-panel" id="panel-multiverse">
-    <div class="fiction-coming">
-      <span class="fiction-coming-label" style="color:var(--teal)">Multiverse / Parallel Universes</span>
-      <p class="fiction-coming-text">No stories published yet in this genre. Check back soon.</p>
-    
-      <a href="archive-multiverse.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
     </div>
   </div>
+
+  <!-- LATEST STORIES PANEL -->
+  <div class="fiction-panel active" id="panel-latest-stories">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">✦ All Genres</span>
+      <p class="fiction-coming-text">No stories published yet. Check back soon.</p>
+      <a href="archive-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">Browse Fantasy →</a>
+      <a href="archive-scifi.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal);margin-left:8px">Browse Sci-Fi →</a>
+    </div>
+  </div>
+
+  <!-- FANTASY PANEL -->
+  <div class="fiction-panel" id="panel-fantasy-stories">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">✦ Fantasy</span>
+      <p class="fiction-coming-text">No fantasy stories yet. Check back soon.</p>
+      <a href="archive-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
+    </div>
+  </div>
+
+  <!-- SCI-FI PANEL -->
+  <div class="fiction-panel" id="panel-scifi-stories">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--teal)">◈ Science Fiction</span>
+      <p class="fiction-coming-text">No sci-fi stories yet. Check back soon.</p>
+      <a href="archive-scifi.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
+    </div>
+  </div>
+
+  <!-- OTHER PANEL -->
+  <div class="fiction-panel" id="panel-other-stories">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--violet)">⬡ Other</span>
+      <p class="fiction-coming-text">No other stories yet. Check back soon.</p>
+      <a href="archive-other.html" class="fiction-archive-link" style="color:var(--violet);border-color:var(--violet)">View Archive →</a>
+    </div>
+  </div>
+
+  <!-- MOBILE GRID -->
+  <div class="mobile-genre-grid" id="mobile-fiction-grid">
+    <div class="mobile-genre-section">
+      <span class="mobile-genre-section-label fantasy">✦ Browse by Category</span>
+      <div class="mobile-genre-grid-inner">
+        <a href="archive-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-scifi.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Science Fiction</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-other.html" class="mobile-genre-card nonfic-card-m"><div class="mobile-genre-card-name">Other</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <section id="worlds" class="panel-deeper">
-  <div class="section-inner">
+  <div class="section-inner" style="padding-bottom:0">
     <div class="section-header">
       <span class="section-tag">The Atlas</span>
       <h2 class="section-title">Original <em>Worldbuilding</em></h2>
       <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
-      <p class="section-desc">New civilisations, strange geographies, and histories written for worlds that live only on the page. Each entry is a world still being drawn.</p>
+      <p class="section-desc">New civilisations, strange geographies, and histories written for worlds that live only on the page.</p>
     </div>
   </div>
-  <div class="worlds-coming">
-    <p class="worlds-coming-text">No world entries yet. The atlas is being drawn.</p>
+
+  <div class="fiction-nav-wrap" id="worlds-nav-wrap">
+    <div class="fiction-nav" id="worlds-nav">
+      <div class="fiction-nav-parent">
+        <div class="fiction-nav-subs">
+          <button class="fiction-tab world-tab active" data-worldpanel="world-latest" style="color:var(--red-bright)">Latest</button>
+          <button class="fiction-tab world-tab" data-worldpanel="world-fantasy" style="color:var(--red-bright)">Fantasy</button>
+          <button class="fiction-tab world-tab" data-worldpanel="world-althistory" style="color:var(--teal)">Alternate History</button>
+          <button class="fiction-tab world-tab" data-worldpanel="world-scifi" style="color:var(--teal)">Science Fiction</button>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="fiction-panel active" id="panel-world-latest">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">⬡ Latest</span>
+      <p class="fiction-coming-text">No world entries yet. The atlas is being drawn.</p>
+    </div>
+  </div>
+
+  <div class="fiction-panel" id="panel-world-fantasy">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">✦ Fantasy Worlds</span>
+      <p class="fiction-coming-text">No fantasy worlds yet. The atlas is being drawn.</p>
+      <a href="archive-world-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
+    </div>
+  </div>
+
+  <div class="fiction-panel" id="panel-world-althistory">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--teal)">◈ Alternate History</span>
+      <p class="fiction-coming-text">No alternate history worlds yet. The atlas is being drawn.</p>
+      <a href="archive-world-althistory.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
+    </div>
+  </div>
+
+  <div class="fiction-panel" id="panel-world-scifi">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--teal)">◈ Science Fiction</span>
+      <p class="fiction-coming-text">No sci-fi worlds yet. The atlas is being drawn.</p>
+      <a href="archive-world-scifi.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
+    </div>
+  </div>
+
+  <!-- MOBILE GRID -->
+  <div class="mobile-genre-grid" id="mobile-worlds-grid">
+    <div class="mobile-genre-section">
+      <span class="mobile-genre-section-label fantasy">Browse Worldbuilding</span>
+      <div class="mobile-genre-grid-inner">
+        <a href="archive-world-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Fantasy Worlds</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-world-althistory.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Alternate History</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-world-scifi.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Science Fiction</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <section id="reviews">
@@ -1078,245 +936,78 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
     <div class="section-header">
       <span class="section-tag">The Library</span>
       <h2 class="section-title">Book <em>Reviews</em></h2>
-      <div class="section-rule"><span class="rule-gem"><svg class="d20-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="currentColor" stroke-width="5"/><polygon points="50,5 95,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,5 5,30 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="95,30 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="5,30 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 95,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/><polygon points="50,95 5,70 50,50" fill="none" stroke="currentColor" stroke-width="3" opacity="0.6"/></svg></span></div>
-      <p class="section-desc">Honest, in-depth reviews of the fiction I read and care about. No star ratings without reasoning, no summaries without opinions.</p>
+      <div class="section-rule"><span class="rule-gem">✦</span></div>
+      <p class="section-desc">Honest, in-depth reviews of the books I read and care about.</p>
     </div>
   </div>
 
-<div class="mobile-genre-grid" id="mobile-reviews-grid">
-  <div class="mobile-genre-section">
-    <span class="mobile-genre-section-label fantasy">✦ Fantasy</span>
-    <div class="mobile-genre-grid-inner"><a href="archive-rv-epic-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">High / Epic Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-grimdark.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Grimdark</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-dark-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Dark Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-mythic-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Mythic / Mythpunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-urban-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Urban / Contemporary</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-cozy-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Cozy Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-romantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Romantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-dark-academia.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Dark Academia</div><div class="mobile-genre-card-arrow">Browse →</div></a></div>
-  </div>
-  <div class="mobile-genre-divider"></div>
-  <div class="mobile-genre-section">
-    <span class="mobile-genre-section-label scifi">◈ Sci-Fi</span>
-    <div class="mobile-genre-grid-inner"><a href="archive-rv-cyberpunk.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Cyberpunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-biopunk.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Biopunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-steampunk.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Steampunk</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-space-opera.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Space Opera</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-military-sf.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Military Sci-Fi</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-cosmic-horror.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Cosmic Horror</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-dystopian.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Dystopian</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-apocalyptic.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Apocalyptic</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-social-sf.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Social Sci-Fi</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-time-travel.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Time Travel</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-alt-history.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Alternate History</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-multiverse.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Multiverse</div><div class="mobile-genre-card-arrow">Browse →</div></a></div>
-  </div>
-  <div class="mobile-genre-divider"></div>
-  <div class="mobile-genre-section">
-    <span class="mobile-genre-section-label nonfic">◉ Non-Fiction</span>
-    <div class="mobile-genre-grid-inner"><a href="archive-rv-philosophy.html" class="mobile-genre-card nonfic-card-m"><div class="mobile-genre-card-name">Philosophy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-<a href="archive-rv-political.html" class="mobile-genre-card nonfic-card-m"><div class="mobile-genre-card-name">Political</div><div class="mobile-genre-card-arrow">Browse →</div></a>
-
-
-  <!-- TAB NAV — same genres, prefixed rv- to keep IDs unique -->
   <div class="fiction-nav-wrap" id="reviews-nav-wrap">
-    <div style="position:relative;">
-      <div class="fiction-nav-fade-l"></div>
-      <div class="fiction-nav-arrow fiction-nav-arrow-l" data-nav="reviews-nav">‹</div>
-      <div class="fiction-nav" id="reviews-nav">
-        <div class="fiction-nav-parent">
-          <span class="fiction-nav-parent-label fantasy-label">⬡ Fantasy</span>
-          <div class="fiction-nav-subs">
-            <button class="fiction-tab fantasy-tab rv-tab active" data-rvpanel="rv-epic-fantasy">High / Epic</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-grimdark">Grimdark</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-dark-fantasy">Dark Fantasy</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-mythic-fantasy">Mythic / Mythpunk</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-urban-fantasy">Urban / Contemporary</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-cozy-fantasy">Cozy Fantasy</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-romantasy">Romantasy</button>
-            <button class="fiction-tab fantasy-tab rv-tab" data-rvpanel="rv-dark-academia">Dark Academia</button>
-          </div>
-        </div>
-        <div class="fiction-divider"></div>
-        <div class="fiction-nav-parent">
-          <span class="fiction-nav-parent-label scifi-label">◈ Sci-Fi</span>
-          <div class="fiction-nav-subs">
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-cyberpunk">Cyberpunk</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-biopunk">Biopunk</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-steampunk">Steampunk / Dieselpunk</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-space-opera">Space Opera</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-military-sf">Military Sci-Fi</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-cosmic-horror">Cosmic / Space Horror</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-dystopian">Dystopian</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-apocalyptic">Apocalyptic / Post-Ap.</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-social-sf">Social Sci-Fi</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-time-travel">Time Travel</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-alt-history">Alternate History</button>
-            <button class="fiction-tab scifi-tab rv-tab" data-rvpanel="rv-multiverse">Multiverse</button>
-          </div>
-        </div>
-        <div class="fiction-divider"></div>
-        <div class="fiction-nav-parent">
-          <span class="fiction-nav-parent-label" style="color:var(--violet)">◉ Non-Fiction</span>
-          <div class="fiction-nav-subs">
-            <button class="fiction-tab rv-tab active" style="color:var(--red-bright)" data-rvpanel="rv-latest">Latest</button>
-            <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-philosophy">Philosophy</button>
-            <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-political">Political</button>
-            <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-self-improvement">Self Improvement</button>
-            <button class="fiction-tab rv-tab" style="color:var(--violet)" data-rvpanel="rv-worldbuilding-books">Worldbuilding</button>
-          </div>
+    <div class="fiction-nav" id="reviews-nav">
+      <div class="fiction-nav-parent">
+        <div class="fiction-nav-subs">
+          <button class="fiction-tab rv-tab active" data-rvpanel="rv-latest" style="color:var(--red-bright)">Latest</button>
+          <button class="fiction-tab rv-tab" data-rvpanel="rv-fantasy" style="color:var(--red-bright)">Fantasy</button>
+          <button class="fiction-tab rv-tab" data-rvpanel="rv-scifi" style="color:var(--teal)">Science Fiction</button>
+          <button class="fiction-tab rv-tab" data-rvpanel="rv-nonfiction" style="color:var(--violet)">Non-Fiction</button>
+          <button class="fiction-tab rv-tab" data-rvpanel="rv-other" style="color:var(--muted)">Other</button>
         </div>
       </div>
-      <div class="fiction-nav-fade-r"></div>
-      <div class="fiction-nav-arrow fiction-nav-arrow-r" data-nav="reviews-nav">›</div>
     </div>
-    <div class="fiction-nav-track"><div class="fiction-nav-thumb" id="reviews-nav-thumb"></div></div>
   </div>
 
   <div class="rv-panel active" id="rv-latest">
-  <div class="fiction-hero">
-    <div class="fiction-hero-main">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">◉ Most Recent</span>
-      <h3 class="fiction-title">The Daily Stoic</h3>
-      <p class="fiction-excerpt">The Daily Stoic is not the most rigorous introduction to Stoicism you will find, and it knows that. What it is, is consistent — and consistency is the point.</p>
-      <div class="fiction-meta-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Ryan Holiday</span>
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">·</span>
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">★★★★★</span>
-      </div>
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="btn btn-red">Read Review</a>
-      </div>
-    </div>
-    <div class="fiction-sidebar">
-      <div class="sidebar-header">All Recent Reviews</div>
-      <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="fiction-item">
-        <span class="fiction-item-num">1</span>
-        <div class="fiction-item-body">
-          <div class="fiction-item-title">The Daily Stoic</div>
-          <div class="fiction-item-sub" style="color:var(--muted);">Ryan Holiday · ★★★★★</div>
-        </div>
-      </a>
-      <a href="review-katabasis.html" class="fiction-item">
-        <span class="fiction-item-num">2</span>
-        <div class="fiction-item-body">
-          <div class="fiction-item-title">Katabasis</div>
-          <div class="fiction-item-sub" style="color:var(--muted);">R.F. Kuang · ★★★☆☆</div>
-        </div>
-      </a>
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">◉ Latest</span>
+      <p class="fiction-coming-text">No reviews yet. Check back soon.</p>
     </div>
   </div>
-</div>
 
-  <div class="rv-panel" id="rv-epic-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ High / Epic Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-epic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-grimdark"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Grimdark</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-grimdark.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-dark-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Dark Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-dark-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-mythic-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Mythic / Mythpunk</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-mythic-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-urban-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Urban / Contemporary Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-urban-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-cozy-fantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Cozy Fantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-cozy-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-romantasy"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--red-bright)">⬡ Romantasy</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-romantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-dark-academia">
-  <div class="fiction-hero">
-    <div class="fiction-hero-main">
-      <span class="fiction-coming-label" style="color:var(--red-bright)">◉ Dark Academia</span>
-      <h3 class="fiction-title">Katabasis</h3>
-      <p class="fiction-excerpt">Katabasis has all the ingredients of something special. The premise is genuinely original, the worldbuilding is ambitious and the prose has real bite.</p>
-      <div class="fiction-meta-row">
-        <span class="fiction-meta">R.F. Kuang</span>
-        <span class="fiction-meta">·</span>
-        <span class="fiction-meta">★★★☆☆</span>
-      </div>
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        <a href="review-katabasis.html" class="btn btn-red">Read Review</a>
-        <a href="archive-rv-dark-academia.html" class="btn btn-ghost">All Dark Academia</a>
-      </div>
-    </div>
-    <div class="fiction-sidebar">
-      <div class="sidebar-header">Latest Reviews</div>
-      <a href="review-katabasis.html" class="fiction-item">
-        <span class="fiction-item-num">1</span>
-        <div class="fiction-item-body">
-          <div class="fiction-item-title">Katabasis</div>
-          <div class="fiction-item-sub">R.F. Kuang · ★★★☆☆</div>
-        </div>
-      </a>
+  <div class="rv-panel" id="rv-fantasy">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--red-bright)">✦ Fantasy</span>
+      <p class="fiction-coming-text">No fantasy reviews yet. Check back soon.</p>
+      <a href="archive-rv-fantasy.html" class="fiction-archive-link" style="color:var(--red-bright);border-color:var(--red-bright)">View Archive →</a>
     </div>
   </div>
-</div>
-  <div class="rv-panel" id="rv-cyberpunk"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Cyberpunk</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-cyberpunk.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-biopunk"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Biopunk</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-biopunk.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-steampunk"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Steampunk / Dieselpunk</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-steampunk.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-space-opera"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Space Opera</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-space-opera.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-military-sf"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Military Sci-Fi</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-military-sf.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-cosmic-horror"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Cosmic / Space Horror</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-cosmic-horror.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-dystopian"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Dystopian Fiction</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-dystopian.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-apocalyptic"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Apocalyptic / Post-Ap.</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-apocalyptic.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-social-sf"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Social Sci-Fi</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-social-sf.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-time-travel"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Time Travel</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-time-travel.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-alt-history"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Alternate History</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-alt-history.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-multiverse"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--teal)">◈ Multiverse / Parallel Universes</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-multiverse.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a></div></div>
-  <div class="rv-panel" id="rv-philosophy">
-  <div class="fiction-hero">
-    <div class="fiction-hero-main">
-      <span class="fiction-coming-label" style="color:var(--violet)">◉ Philosophy</span>
-      <h3 class="fiction-title">The Daily Stoic</h3>
-      <p class="fiction-excerpt">The Daily Stoic is not the most rigorous introduction to Stoicism you will find, and it knows that. What it is, is consistent — and consistency is the point.</p>
-      <div class="fiction-meta-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Ryan Holiday</span>
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">·</span>
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">★★★★★</span>
-      </div>
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="btn btn-red">Read Review</a>
-        <a href="archive-rv-philosophy.html" class="btn btn-ghost">All Philosophy</a>
-      </div>
-    </div>
-    <div class="fiction-sidebar">
-      <div class="sidebar-header">Latest Reviews</div>
-      <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="fiction-item">
-        <span class="fiction-item-num">1</span>
-        <div class="fiction-item-body">
-          <div class="fiction-item-title">The Daily Stoic</div>
-          <div class="fiction-item-sub" style="color:var(--muted);">Ryan Holiday · ★★★★★</div>
-        </div>
-      </a>
+
+  <div class="rv-panel" id="rv-scifi">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--teal)">◈ Science Fiction</span>
+      <p class="fiction-coming-text">No sci-fi reviews yet. Check back soon.</p>
+      <a href="archive-rv-scifi.html" class="fiction-archive-link" style="color:var(--teal);border-color:var(--teal)">View Archive →</a>
     </div>
   </div>
-</div>
-  <div class="rv-panel" id="rv-political"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--violet)">◉ Political</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-political.html" class="fiction-archive-link" style="color:var(--violet);border-color:var(--violet)">View Archive →</a></div></div>
- <div class="rv-panel" id="rv-self-improvement">
-  <div class="fiction-hero">
-    <div class="fiction-hero-main">
-      <span class="fiction-coming-label" style="color:var(--violet)">◉ Self Improvement</span>
-      <h3 class="fiction-title">The Daily Stoic</h3>
-      <p class="fiction-excerpt">The Daily Stoic is not the most rigorous introduction to Stoicism you will find, and it knows that. What it is, is consistent — and consistency is the point.</p>
-      <div class="fiction-meta-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Ryan Holiday</span>
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">·</span>
-        <span class="fiction-meta" style="font-family:var(--font-sans);font-size:9px;color:var(--muted);">★★★★★</span>
-      </div>
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="btn btn-red">Read Review</a>
-        <a href="archive-rv-self-improvement.html" class="btn btn-ghost">All Self Improvement</a>
-      </div>
-    </div>
-    <div class="fiction-sidebar">
-      <div class="sidebar-header">Latest Reviews</div>
-      <a href="review-the-daily-stoic-366-meditations-on-wisdom-perseverance-and-the-art-of-living.html" class="fiction-item">
-        <span class="fiction-item-num">1</span>
-        <div class="fiction-item-body">
-          <div class="fiction-item-title">The Daily Stoic</div>
-          <div class="fiction-item-sub" style="color:var(--muted);">Ryan Holiday · ★★★★★</div>
-        </div>
-      </a>
+
+  <div class="rv-panel" id="rv-nonfiction">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--violet)">◉ Non-Fiction</span>
+      <p class="fiction-coming-text">No non-fiction reviews yet. Check back soon.</p>
+      <a href="archive-rv-nonfiction.html" class="fiction-archive-link" style="color:var(--violet);border-color:var(--violet)">View Archive →</a>
     </div>
   </div>
-</div>
-  <div class="rv-panel" id="rv-worldbuilding-books"><div class="rv-coming"><span class="rv-coming-genre" style="color:var(--violet)">◉ Worldbuilding</span><p class="rv-coming-text">No reviews yet in this genre. Come back soon.</p><a href="archive-rv-worldbuilding.html" class="fiction-archive-link" style="color:var(--violet);border-color:var(--violet)">View Archive →</a></div></div>
 
+  <div class="rv-panel" id="rv-other">
+    <div class="fiction-coming">
+      <span class="fiction-coming-label" style="color:var(--muted)">⬡ Other</span>
+      <p class="fiction-coming-text">No other reviews yet. Check back soon.</p>
+      <a href="archive-rv-other.html" class="fiction-archive-link" style="color:var(--muted);border-color:var(--muted)">View Archive →</a>
+    </div>
+  </div>
 
+  <!-- MOBILE GRID -->
+  <div class="mobile-genre-grid" id="mobile-reviews-grid">
+    <div class="mobile-genre-section">
+      <span class="mobile-genre-section-label fantasy">Browse Reviews</span>
+      <div class="mobile-genre-grid-inner">
+        <a href="archive-rv-fantasy.html" class="mobile-genre-card fantasy-card-m"><div class="mobile-genre-card-name">Fantasy</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-rv-scifi.html" class="mobile-genre-card scifi-card-m"><div class="mobile-genre-card-name">Science Fiction</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-rv-nonfiction.html" class="mobile-genre-card nonfic-card-m"><div class="mobile-genre-card-name">Non-Fiction</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+        <a href="archive-rv-other.html" class="mobile-genre-card nonfic-card-m"><div class="mobile-genre-card-name">Other</div><div class="mobile-genre-card-arrow">Browse →</div></a>
+      </div>
+    </div>
+  </div>
 
-</div></div></div></section>
+</section>
 
 <section id="irl" class="panel-dark" style="min-height:auto">
   <div class="irl-layout">
@@ -1395,40 +1086,32 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
         <li><a href="#reviews">Book Reviews</a></li>
         <li><a href="archive-irl.html">IRL</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Fantasy</div>
+      <div class="footer-col-title">Original Stories</div>
       <ul class="footer-links">
-        <li><a href="#">High / Epic Fantasy</a></li>
-        <li><a href="#">Grimdark</a></li>
-        <li><a href="#">Dark Fantasy</a></li>
-        <li><a href="#">Mythic / Mythpunk</a></li>
-        <li><a href="#">Urban Fantasy</a></li>
-        <li><a href="#">Cozy Fantasy</a></li>
-        <li><a href="#">Romantasy</a></li>
-        <li><a href="#">Dark Academia</a></li>
+        <li><a href="archive-fantasy.html">Fantasy</a></li>
+        <li><a href="archive-scifi.html">Science Fiction</a></li>
+        <li><a href="archive-other.html">Other</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Non-Fiction</div>
+      <div class="footer-col-title">Book Reviews</div>
       <ul class="footer-links">
-        <li><a href="#">Philosophy</a></li>
-        <li><a href="#">Political</a></li>
-        <li><a href="#">Self Improvement</a></li>
-        <li><a href="#">Worldbuilding</a></li>
+        <li><a href="archive-rv-fantasy.html">Fantasy</a></li>
+        <li><a href="archive-rv-scifi.html">Science Fiction</a></li>
+        <li><a href="archive-rv-nonfiction.html">Non-Fiction</a></li>
+        <li><a href="archive-rv-other.html">Other</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Sci-Fi</div>
+      <div class="footer-col-title">Worldbuilding</div>
       <ul class="footer-links">
-        <li><a href="#">Cyberpunk</a></li>
-        <li><a href="#">Biopunk</a></li>
-        <li><a href="#">Space Opera</a></li>
-        <li><a href="#">Military Sci-Fi</a></li>
-        <li><a href="#">Cosmic Horror</a></li>
-        <li><a href="#">Dystopian</a></li>
-        <li><a href="#">Alternate History</a></li>
+        <li><a href="archive-world-fantasy.html">Fantasy Worlds</a></li>
+        <li><a href="archive-world-althistory.html">Alternate History</a></li>
+        <li><a href="archive-world-scifi.html">Science Fiction</a></li>
       </ul>
     </div>
   </div>
@@ -1682,16 +1365,22 @@ function introAnim(){
 
 // FICTION TABS
 function activateTab(tab){
-  const panel = tab.dataset.panel || tab.dataset.rvpanel;
+  const panel = tab.dataset.panel || tab.dataset.rvpanel || tab.dataset.worldpanel;
   const isRv = tab.classList.contains('rv-tab');
+  const isWorld = tab.classList.contains('world-tab');
   if(isRv){
     document.querySelectorAll('.rv-tab').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.rv-panel').forEach(p=>p.classList.remove('active'));
     const target = document.getElementById(panel);
     if(target){ target.classList.add('active'); gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:'power2.out'}); }
+  } else if(isWorld){
+    document.querySelectorAll('.world-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.fiction-panel[id^="panel-world-"]').forEach(p=>p.classList.remove('active'));
+    const target = document.getElementById('panel-'+panel);
+    if(target){ target.classList.add('active'); gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:'power2.out'}); }
   } else {
-    document.querySelectorAll('.fiction-tab:not(.rv-tab)').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.fiction-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.fiction-tab:not(.rv-tab):not(.world-tab)').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.fiction-panel:not([id^="panel-world-"])').forEach(p=>p.classList.remove('active'));
     const target = document.getElementById('panel-'+panel);
     if(target){ target.classList.add('active'); gsap.fromTo(target,{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:'power2.out'}); }
   }
