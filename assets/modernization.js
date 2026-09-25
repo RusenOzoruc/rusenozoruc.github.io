@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded',()=> {
   });
 
   // Search + sort for review archives.
-  const grid=document.querySelector('.entries-grid');
+  const isReviewArchive=/\/archive-rv-[^/]+\.html$/i.test(window.location.pathname) || /^archive-rv-[^/]+\.html$/i.test(window.location.pathname.replace(/^\//,''));
+  const grid=isReviewArchive ? document.querySelector('.entries-grid') : null;
   const cards=grid ? [...grid.querySelectorAll('.entry-card')] : [];
   if(grid && cards.length){
     const tools=document.createElement('div');
