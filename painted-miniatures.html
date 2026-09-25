@@ -92,10 +92,67 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:15px 34px;display:fl
         </div>
       </section>
 
-      <div class="mini-gallery" id="mini-gallery"></div>
-      <div class="mini-empty" id="mini-filter-empty">
-        <h3>The display case is ready.</h3>
-        <p>No painted miniature entries have been published yet. When you give me the first miniature's photos, paint date, faction, and your note, I'll add it here and the homepage's “Most Recent Miniatures” area will update with it.</p>
+      <div class="mini-preview-label">Preview cards — placeholder images only</div>
+      <div class="mini-gallery" id="mini-gallery">
+        <article class="mini-card mini-card-demo" data-system="warhammer" data-faction="world-eaters">
+          <div class="mini-card-media">
+            <img src="assets/mini-placeholder-red.svg" alt="Placeholder miniature photo preview">
+            <span class="mini-demo-badge">Preview</span>
+            <span class="mini-photo-count">3 photos</span>
+          </div>
+          <div class="mini-card-thumbs" aria-label="Additional photo preview">
+            <img src="assets/mini-placeholder-red.svg" alt="">
+            <img src="assets/mini-placeholder-red.svg" alt="">
+            <img src="assets/mini-placeholder-red.svg" alt="">
+          </div>
+          <div class="mini-card-body">
+            <div class="mini-card-meta">Warhammer · World Eaters</div>
+            <h3 class="mini-card-title">Miniature Name</h3>
+            <p class="mini-card-note">Your painting note will appear here. You can write about the scheme, techniques, mistakes, favourite details, or anything else you want to remember.</p>
+            <div class="mini-card-date">Painted · DD MMM YYYY</div>
+          </div>
+        </article>
+
+        <article class="mini-card mini-card-demo" data-system="warhammer" data-faction="emperors-children">
+          <div class="mini-card-media">
+            <img src="assets/mini-placeholder-violet.svg" alt="Placeholder miniature photo preview">
+            <span class="mini-demo-badge">Preview</span>
+            <span class="mini-photo-count">4 photos</span>
+          </div>
+          <div class="mini-card-thumbs" aria-label="Additional photo preview">
+            <img src="assets/mini-placeholder-violet.svg" alt="">
+            <img src="assets/mini-placeholder-violet.svg" alt="">
+            <img src="assets/mini-placeholder-violet.svg" alt="">
+          </div>
+          <div class="mini-card-body">
+            <div class="mini-card-meta">Warhammer · Emperor's Children</div>
+            <h3 class="mini-card-title">Miniature Name</h3>
+            <p class="mini-card-note">This is where your own note goes. Longer notes can wrap naturally without making the image area smaller.</p>
+            <div class="mini-card-date">Painted · DD MMM YYYY</div>
+          </div>
+        </article>
+
+        <article class="mini-card mini-card-demo" data-system="starcraft" data-faction="terran">
+          <div class="mini-card-media">
+            <img src="assets/mini-placeholder-teal.svg" alt="Placeholder miniature photo preview">
+            <span class="mini-demo-badge">Preview</span>
+            <span class="mini-photo-count">2 photos</span>
+          </div>
+          <div class="mini-card-thumbs" aria-label="Additional photo preview">
+            <img src="assets/mini-placeholder-teal.svg" alt="">
+            <img src="assets/mini-placeholder-teal.svg" alt="">
+          </div>
+          <div class="mini-card-body">
+            <div class="mini-card-meta">StarCraft · Terran</div>
+            <h3 class="mini-card-title">Miniature Name</h3>
+            <p class="mini-card-note">The same card design works for StarCraft, including several angles and a note written by you.</p>
+            <div class="mini-card-date">Painted · DD MMM YYYY</div>
+          </div>
+        </article>
+      </div>
+      <div class="mini-empty mini-hidden" id="mini-filter-empty">
+        <h3>No preview card matches this filter.</h3>
+        <p>These are temporary layout examples only. Your real painted miniatures will replace them later.</p>
       </div>
 
       <div class="mini-note-box">
