@@ -546,6 +546,7 @@ footer{position:relative;z-index:10;background:rgba(5,6,10,0.98);border-top:1px 
 @media(max-width:1024px){.hamburger{display:flex;}.nav-links,.nav-social,.nav-date{display:none;}}
 @media(max-width:768px){.archive-header{padding:120px 20px 48px;}.featured-inner{grid-template-columns:1fr;}.featured-main{padding:36px 20px;}.entries-grid{grid-template-columns:1fr;}.all-entries{padding:48px 20px;}.archive-footer-bar{flex-direction:column;gap:20px;padding:32px 20px;}}
 </style>
+<link rel="stylesheet" href="assets/modernization.css">
 </head>
 <body>
 <div id="cursor"></div><div id="progress-bar"></div>
@@ -990,5 +991,6 @@ bgRenderer.render(bgScene,bgCam);})();
 window.addEventListener('resize',()=>{bgCam.aspect=window.innerWidth/window.innerHeight;bgCam.updateProjectionMatrix();bgRenderer.setSize(window.innerWidth,window.innerHeight);});
 gsap.fromTo('.archive-header',{opacity:0,y:24},{opacity:1,y:0,duration:1,delay:.1,ease:'power3.out'});
 </script>
+<script defer src="assets/modernization.js"></script>
 </body>
 </html>
