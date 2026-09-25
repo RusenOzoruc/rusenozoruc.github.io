@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       ['adeptus-astartes','Adeptus Astartes'],
       ['orks','Orks'],
       ['death-guard','Death Guard'],
-      ['thousand-sons','Thousand Sons']
+      ['thousand-sons','Thousand Sons'],
+      ['warhammer-terrain','Terrain']
     ],
     starcraft:[
       ['all','All StarCraft'],
