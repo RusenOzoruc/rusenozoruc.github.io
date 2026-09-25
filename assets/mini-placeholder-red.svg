@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b0c12"/><stop offset=".55" stop-color="#281014"/><stop offset="1" stop-color="#090a0f"/></linearGradient><radialGradient id="r"><stop stop-color="#d94444" stop-opacity=".45"/><stop offset="1" stop-color="#d94444" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="900" fill="url(#g)"/><circle cx="600" cy="430" r="360" fill="url(#r)"/>
+<g fill="#171820" stroke="#d94444" stroke-width="10" stroke-linejoin="round">
+<ellipse cx="600" cy="745" rx="265" ry="68"/><path d="M505 675l42-210 106-80 105 80 42 210-90 38-110-28-110 28z"/><path d="M560 388l20-102 70-48 72 49 18 101-88 48z"/><path d="M510 480l-120-70-82 48 118 116zM790 480l120-70 82 48-118 116z"/></g>
+<g stroke="#e0a24b" stroke-width="8" fill="none" opacity=".85"><path d="M600 238v-72M570 250l-58-60M638 250l58-60M515 700l-58 32M685 700l58 32"/></g>
+<text x="600" y="835" fill="#e9e3dc" font-family="system-ui,sans-serif" font-size="36" text-anchor="middle" letter-spacing="8">PLACEHOLDER PHOTO</text>
+</svg>
