@@ -125,3 +125,70 @@
   .mini-faction-emblem{width:46px;height:46px}
   .mini-faction-emblem svg{width:38px;height:38px}
 }
+
+
+/* Real faction symbols supplied by the site owner */
+.mini-faction{
+  grid-template-columns:44px 1fr !important;
+  column-gap:14px !important;
+  min-height:88px !important;
+}
+.mini-faction-logo-wrap{
+  grid-row:1/3;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.018);
+}
+.mini-faction-logo{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  display:block;
+  filter:brightness(0) invert(1);
+  opacity:.86;
+  transition:opacity .2s ease,transform .2s ease,filter .2s ease;
+}
+.mini-faction:hover .mini-faction-logo{
+  opacity:1;
+  transform:scale(1.06);
+  filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.18));
+}
+/* Terrain keeps the existing neutral custom emblem until a terrain mark is supplied. */
+.mini-faction-emblem{
+  width:42px !important;
+  height:42px !important;
+}
+.mini-faction-emblem svg{
+  width:30px !important;
+  height:30px !important;
+}
+.mini-card-meta{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.mini-card-faction-logo{
+  width:17px;
+  height:17px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  opacity:.72;
+}
+@media(max-width:700px){
+  .mini-faction{
+    grid-template-columns:40px 1fr !important;
+    min-height:82px !important;
+  }
+  .mini-faction-logo-wrap{
+    width:38px;
+    height:38px;
+  }
+  .mini-faction-logo{
+    width:25px;
+    height:25px;
+  }
+}
