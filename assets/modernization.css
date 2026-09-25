@@ -1,127 +1,319 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&display=swap');
 
 :root{
   --font-title:'Source Serif 4',Georgia,serif !important;
   --font-sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;
-  --font-prose:'Source Serif 4',Georgia,serif !important;
+  --font-prose:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;
 }
 
-/* Modern readable type without losing the site's literary character */
-body{font-family:var(--font-title);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;}
+/* ---------- TYPOGRAPHY ----------
+   Headings keep the site's literary/fantasy character.
+   Everything meant to be read for more than a few seconds uses Inter. */
+body{
+  font-family:var(--font-sans) !important;
+  font-size:18px;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5,h6,
+.hero-title,.section-title,.archive-title,.review-title,.entry-card-title,
+.loader-title,.review-author{
+  font-family:var(--font-title) !important;
+}
+
 .nav-links a,.dropdown-link,.section-tag,.review-genre,.review-date,.review-link,
 .entry-card-meta,.entry-card-link,.archive-breadcrumb,.archive-genre-label,
-.fiction-tab,.fiction-nav-parent-label,.btn,.footer-copy,.meta-label{
+.fiction-tab,.fiction-nav-parent-label,.btn,.footer-copy,.meta-label,
+.review-search,.review-sort,.review-result-count{
   font-family:var(--font-sans) !important;
 }
-.about-text p,.world-text,.review-excerpt,.fiction-desc,.irl-post-body,.archive-desc,
-.entry-card-excerpt,.page-body p,.page-body li{
-  font-family:var(--font-title) !important;
-  font-size:clamp(18px,1.2vw,20px) !important;
-  line-height:1.78 !important;
-}
-.page-body{font-size:19px;line-height:1.8;}
-.page-body p{max-width:74ch;}
-.review-title,.entry-card-title{font-size:clamp(25px,2.1vw,31px) !important;line-height:1.18 !important;}
-.review-author,.entry-card-author{font-size:18px !important;}
-.section-desc,.archive-desc{font-size:18px !important;line-height:1.65 !important;}
-.nav-links a{font-size:12px !important;letter-spacing:1.8px !important;}
-.dropdown-link{font-size:10px !important;letter-spacing:1.4px !important;}
-.btn{font-size:11px !important;letter-spacing:2px !important;}
 
-/* Brand logo */
+/* Readable site copy */
+.about-text p,
+.world-text,
+.review-excerpt,
+.fiction-desc,
+.irl-post-body,
+.archive-desc,
+.entry-card-excerpt,
+.page-body p,
+.page-body li,
+.section-desc{
+  font-family:var(--font-prose) !important;
+  font-size:clamp(19px,1.35vw,22px) !important;
+  line-height:1.78 !important;
+  letter-spacing:-0.01em;
+}
+
+.page-body{
+  font-family:var(--font-prose) !important;
+  font-size:21px !important;
+  line-height:1.82 !important;
+}
+
+.page-body p{
+  max-width:72ch;
+  margin-bottom:1.35em;
+}
+
+.hero-title{
+  font-family:var(--font-title) !important;
+  font-size:clamp(58px,7vw,108px) !important;
+  font-weight:600 !important;
+  line-height:.96 !important;
+  letter-spacing:-1.7px !important;
+}
+
+.section-title,.archive-title{
+  font-family:var(--font-title) !important;
+  font-size:clamp(40px,4.5vw,64px) !important;
+  font-weight:600 !important;
+  line-height:1.02 !important;
+  letter-spacing:-.8px !important;
+}
+
+.review-title{
+  font-family:var(--font-title) !important;
+  font-size:clamp(42px,5.5vw,76px) !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+  letter-spacing:-.8px !important;
+}
+
+.entry-card-title{
+  font-family:var(--font-title) !important;
+  font-size:clamp(28px,2.3vw,36px) !important;
+  font-weight:600 !important;
+  line-height:1.12 !important;
+}
+
+.review-author,.entry-card-author{
+  font-size:20px !important;
+}
+
+.section-desc,.archive-desc{
+  font-size:20px !important;
+  line-height:1.7 !important;
+}
+
+.nav-links a{
+  font-size:13px !important;
+  font-weight:600 !important;
+  letter-spacing:1.35px !important;
+}
+
+.dropdown-link{
+  font-size:11px !important;
+  font-weight:600 !important;
+  letter-spacing:1.15px !important;
+}
+
+.btn{
+  font-size:12px !important;
+  font-weight:600 !important;
+  letter-spacing:1.6px !important;
+  padding:15px 28px !important;
+}
+
+/* ---------- NAV / BRAND ----------
+   Make the RMÖ d20 mark unmistakable rather than a tiny icon. */
+nav{
+  min-height:86px;
+}
+
 .nav-logo{
   display:flex !important;
   align-items:center;
   justify-content:center;
+  width:74px;
+  height:74px;
+  flex:0 0 74px;
+  font-size:0 !important;
   text-decoration:none;
-  flex-shrink:0;
-}
-.nav-logo img{
-  display:block;
-  width:56px;
-  height:56px;
-  object-fit:contain;
-  filter:drop-shadow(0 0 10px rgba(200,133,47,.16));
-  transition:transform .25s ease,filter .25s ease;
-}
-.nav-logo:hover img{
-  transform:scale(1.045);
-  filter:drop-shadow(0 0 14px rgba(224,162,75,.3));
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 46%,rgba(224,162,75,.12),transparent 62%);
+  transition:background .25s ease,transform .25s ease;
 }
 
-/* Review archive usability */
+.nav-logo img{
+  display:block !important;
+  width:68px !important;
+  height:68px !important;
+  object-fit:contain;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:
+    drop-shadow(0 0 8px rgba(224,162,75,.2))
+    drop-shadow(0 0 18px rgba(184,50,50,.08));
+  transition:transform .25s ease,filter .25s ease;
+}
+
+.nav-logo:hover{
+  background:radial-gradient(circle at 50% 46%,rgba(224,162,75,.2),transparent 66%);
+  transform:translateY(-1px);
+}
+
+.nav-logo:hover img{
+  transform:scale(1.06);
+  filter:
+    drop-shadow(0 0 10px rgba(224,162,75,.35))
+    drop-shadow(0 0 24px rgba(123,111,232,.12));
+}
+
+/* ---------- CARDS / READING SURFACES ---------- */
+.entry-card{
+  border:1px solid rgba(220,150,150,.08) !important;
+  transition:transform .22s ease,background .3s,border-color .3s !important;
+}
+
+.entry-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--border-hi) !important;
+}
+
+.review-card,
+.entry-card,
+.irl-post{
+  backdrop-filter:blur(8px);
+}
+
+.entry-card-excerpt,.review-excerpt{
+  color:rgba(221,218,232,.78) !important;
+}
+
+/* ---------- REVIEW ARCHIVE TOOLS ---------- */
 .review-tools{
   max-width:1160px;
-  margin:0 auto 28px;
+  margin:0 auto 32px;
   padding:0 40px;
   display:grid;
-  grid-template-columns:minmax(220px,1fr) auto;
-  gap:12px;
+  grid-template-columns:minmax(260px,1fr) auto;
+  gap:14px;
   align-items:center;
 }
+
 .review-search,.review-sort{
-  min-height:46px;
+  min-height:50px;
   border:1px solid var(--border-hi);
-  background:rgba(10,11,18,.82);
+  background:rgba(10,11,18,.88);
   color:var(--white);
-  font:500 13px/1 var(--font-sans);
+  font-size:14px !important;
   outline:none;
   transition:border-color .2s,background .2s;
 }
-.review-search{width:100%;padding:0 16px;}
-.review-sort{padding:0 38px 0 14px;cursor:pointer;}
-.review-search:focus,.review-sort:focus{border-color:var(--red-bright);background:rgba(17,19,32,.96);}
-.review-search::placeholder{color:var(--muted);}
+
+.review-search{
+  width:100%;
+  padding:0 17px;
+}
+
+.review-sort{
+  padding:0 40px 0 15px;
+  cursor:pointer;
+}
+
+.review-search:focus,.review-sort:focus{
+  border-color:var(--red-bright);
+  background:rgba(17,19,32,.98);
+}
+
+.review-search::placeholder{
+  color:var(--muted);
+}
+
 .review-result-count{
   grid-column:1/-1;
-  font:500 11px/1.4 var(--font-sans);
-  letter-spacing:1.4px;
+  font-size:12px !important;
+  font-weight:600;
+  line-height:1.4;
+  letter-spacing:1.2px;
   color:var(--muted);
   text-transform:uppercase;
 }
-.entry-card{transition:transform .22s ease,background .3s,border-color .3s !important;}
-.entry-card:hover{transform:translateY(-3px);}
-.entry-card[hidden]{display:none !important;}
+
+.entry-card[hidden]{
+  display:none !important;
+}
+
 .review-empty{
   display:none;
   max-width:1160px;
   margin:24px auto;
   padding:40px;
   text-align:center;
-  font:400 19px/1.6 var(--font-title);
+  font:500 20px/1.6 var(--font-sans);
   color:var(--muted);
   border:1px solid var(--border);
-  background:rgba(10,11,18,.7);
+  background:rgba(10,11,18,.76);
 }
-.review-empty.show{display:block;}
 
-/* Respect reduced-motion users while keeping the 3D design for everyone else */
+.review-empty.show{
+  display:block;
+}
+
+/* ---------- ACCESSIBILITY ---------- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto !important;}
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
 }
+
+@media(max-width:900px){
+  nav{
+    min-height:74px;
+  }
+
+  .nav-logo{
+    width:58px;
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .nav-logo img{
+    width:54px !important;
+    height:54px !important;
+  }
+
+  .nav-links a{
+    font-size:12px !important;
+  }
+}
+
 @media(max-width:768px){
-  .nav-logo img{width:44px;height:44px;}
-  .review-tools{padding:0 20px;grid-template-columns:1fr;margin-bottom:20px;}
-  .review-sort{width:100%;}
-  .about-text p,.world-text,.review-excerpt,.fiction-desc,.irl-post-body,.archive-desc,
-  .entry-card-excerpt,.page-body p,.page-body li{font-size:18px !important;line-height:1.72 !important;}
-}
+  .about-text p,
+  .world-text,
+  .review-excerpt,
+  .fiction-desc,
+  .irl-post-body,
+  .archive-desc,
+  .entry-card-excerpt,
+  .page-body p,
+  .page-body li,
+  .section-desc{
+    font-size:18px !important;
+    line-height:1.72 !important;
+  }
 
+  .section-title,.archive-title{
+    font-size:clamp(34px,9vw,50px) !important;
+  }
 
-/* Stronger modern type hierarchy */
-.hero-title{
-  font-family:var(--font-title) !important;
-  font-size:clamp(50px,6.4vw,98px) !important;
-  font-weight:500 !important;
-  line-height:.98 !important;
-  letter-spacing:-1.2px !important;
+  .review-title{
+    font-size:clamp(38px,10vw,56px) !important;
+  }
+
+  .review-tools{
+    padding:0 20px;
+    grid-template-columns:1fr;
+    margin-bottom:22px;
+  }
+
+  .review-sort{
+    width:100%;
+  }
 }
-.section-title,.archive-title,.review-title{
-  font-family:var(--font-title) !important;
-  font-weight:500 !important;
-  letter-spacing:-.35px !important;
-}
-.nav-logo{font-size:0 !important;}
-.entry-card{border:1px solid transparent;}
-.entry-card:hover{border-color:var(--border-hi);}
