@@ -96,3 +96,32 @@
 .mini-card-thumbs img:first-child{opacity:1;filter:none;}
 
 .mini-card{position:relative}.mini-card-open{position:absolute;inset:0;z-index:5}.mini-card:hover{border-color:var(--border-hi)}.mini-card-open:focus-visible{outline:2px solid var(--teal);outline-offset:-3px}
+
+/* Gallery cleanup */
+.mini-toolbar{display:none!important}
+.mini-faction{
+  min-height:96px;
+  display:grid!important;
+  grid-template-columns:54px 1fr;
+  grid-template-rows:auto auto;
+  column-gap:16px;
+  align-items:center;
+}
+.mini-faction-emblem{
+  grid-row:1/3;
+  width:52px;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.018);
+}
+.mini-faction-emblem svg{width:42px;height:42px;display:block}
+.mini-faction-name{margin-bottom:3px!important}
+.mini-faction-count{align-self:start}
+@media(max-width:700px){
+  .mini-faction{grid-template-columns:48px 1fr;min-height:84px}
+  .mini-faction-emblem{width:46px;height:46px}
+  .mini-faction-emblem svg{width:38px;height:38px}
+}
