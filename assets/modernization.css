@@ -107,3 +107,21 @@ body{font-family:var(--font-title);text-rendering:optimizeLegibility;-webkit-fon
   .about-text p,.world-text,.review-excerpt,.fiction-desc,.irl-post-body,.archive-desc,
   .entry-card-excerpt,.page-body p,.page-body li{font-size:18px !important;line-height:1.72 !important;}
 }
+
+
+/* Stronger modern type hierarchy */
+.hero-title{
+  font-family:var(--font-title) !important;
+  font-size:clamp(50px,6.4vw,98px) !important;
+  font-weight:500 !important;
+  line-height:.98 !important;
+  letter-spacing:-1.2px !important;
+}
+.section-title,.archive-title,.review-title{
+  font-family:var(--font-title) !important;
+  font-weight:500 !important;
+  letter-spacing:-.35px !important;
+}
+.nav-logo{font-size:0 !important;}
+.entry-card{border:1px solid transparent;}
+.entry-card:hover{border-color:var(--border-hi);}
