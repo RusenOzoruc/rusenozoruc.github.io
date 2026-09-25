@@ -1,37 +1,29 @@
-# Previewing modernization-v1 safely
+# Preview modernization-v1 on Windows
 
-This branch uses GitHub Codespaces as a private preview environment.
+Codespaces is no longer required for previewing this branch.
 
-## First time, or after this preview fix
+## Easiest method
 
-If you already created a Codespace before this fix, rebuild it so it picks up the updated setup:
+1. On GitHub, make sure the selected branch is `modernization-v1`.
+2. Click the green **Code** button.
+3. Choose **Download ZIP**.
+4. Extract the ZIP to a normal folder on your PC.
+5. Open the extracted folder.
+6. Double-click **preview.bat**.
+7. Keep the preview window open while browsing the site.
 
-1. Open the Codespace.
-2. Press **Ctrl+Shift+P**.
-3. Type **Rebuild Container**.
-4. Choose **Codespaces: Rebuild Container**.
-5. Wait for the rebuild to finish.
+Your browser opens automatically at a local address such as `http://127.0.0.1:8000/`.
 
-## Open the website
+If port 8000 is busy, the preview automatically tries ports 8001 through 8010.
 
-1. On GitHub, switch the repository branch to `modernization-v1`.
-2. Click **Code**.
-3. Open the **Codespaces** tab.
-4. Open your existing Codespace, or create one on `modernization-v1`.
-5. When GitHub says **Website Preview is available on port 8000**, click **Open in Browser**.
+## When finished
 
-You can also open the **Ports** tab in Codespaces and click the globe icon beside **8000 — Website Preview**.
+Close the preview window, or press **Ctrl+C** inside it.
 
-## If you see HTTP ERROR 502
+## Safety
 
-The forwarded URL opened before the local preview server was available, or the Codespace is still using the older container configuration.
-
-Rebuild the container using the steps above. Then wait for port 8000 to appear in the **Ports** tab and open it again.
-
-## Important
-
-- This previews only `modernization-v1`.
+- This previews only the downloaded `modernization-v1` files.
 - It does not merge anything.
 - It does not modify `main`.
+- It does not publish the branch.
 - It does not change the live website.
-- Closing or deleting the Codespace does not delete the branch.
