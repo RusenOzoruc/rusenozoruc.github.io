@@ -36,3 +36,33 @@
 .mini-card-open:focus-visible{outline:2px solid var(--teal);outline-offset:-3px}
 @media(max-width:900px){.mini-detail-hero,.mini-detail-body{grid-template-columns:1fr}.mini-detail-info{padding:38px 30px}}
 @media(max-width:650px){.mini-detail-page{padding-top:92px}.mini-detail-shell{padding:0 18px}.mini-detail-gallery{padding:12px}.mini-detail-info,.mini-detail-panel{padding:28px 22px}.mini-detail-facts{grid-template-columns:1fr}.mini-detail-fact{border-right:0!important}.mini-detail-fact:nth-last-child(2){border-bottom:1px solid var(--border)}.mini-detail-row{grid-template-columns:1fr;gap:5px}}
+
+/* Notes-first miniature detail layout */
+.mini-detail-body{
+  display:block!important;
+  margin-top:34px;
+}
+.mini-detail-notes{
+  max-width:none!important;
+  padding:48px 54px!important;
+}
+.mini-detail-notes-label{
+  font:700 9px var(--font-sans);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--red-bright);
+  margin-bottom:12px;
+}
+.mini-detail-notes h2{
+  font-size:clamp(34px,4vw,52px)!important;
+  margin-bottom:20px!important;
+}
+.mini-detail-notes p{
+  font-size:20px!important;
+  line-height:1.85!important;
+  max-width:82ch;
+}
+@media(max-width:650px){
+  .mini-detail-notes{padding:32px 24px!important}
+  .mini-detail-notes p{font-size:18px!important}
+}
