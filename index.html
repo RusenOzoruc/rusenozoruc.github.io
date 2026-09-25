@@ -1538,14 +1538,25 @@ const msgs=['Opening the archive…','Charting unmade shores…','Cataloguing wo
 let mi=0;
 const msgEl=document.getElementById('loader-msg');
 const li=setInterval(()=>{if(mi<msgs.length)msgEl.textContent=msgs[mi++];},500);
-setTimeout(()=>{
+const loaderStarted=performance.now();
+let loaderFinished=false;
+function finishLoader(){
+  if(loaderFinished) return;
+  loaderFinished=true;
   clearInterval(li);
-  gsap.to('#loader',{opacity:0,duration:.9,delay:.2,onComplete:()=>{
-    window._stopD20 && window._stopD20();
-    document.getElementById('loader').style.display='none';
-    introAnim();
-  }});
-},2800);
+  const elapsed=performance.now()-loaderStarted;
+  const minimumDisplay=Math.max(0,650-elapsed);
+  setTimeout(()=>{
+    gsap.to('#loader',{opacity:0,duration:.55,onComplete:()=>{
+      window._stopD20 && window._stopD20();
+      document.getElementById('loader').style.display='none';
+      introAnim();
+    }});
+  },minimumDisplay);
+}
+if(document.readyState==='complete') finishLoader();
+else window.addEventListener('load',finishLoader,{once:true});
+setTimeout(finishLoader,2200);
 
 function introAnim(){
   gsap.registerPlugin(ScrollTrigger);
