@@ -94,3 +94,5 @@
   filter:saturate(.8);
 }
 .mini-card-thumbs img:first-child{opacity:1;filter:none;}
+
+.mini-card{position:relative}.mini-card-open{position:absolute;inset:0;z-index:5}.mini-card:hover{border-color:var(--border-hi)}.mini-card-open:focus-visible{outline:2px solid var(--teal);outline-offset:-3px}
