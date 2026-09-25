@@ -740,3 +740,118 @@ nav{
     font-size:24px !important;
   }
 }
+
+
+/* ---------- PAINTED MINIATURES HOMEPAGE ---------- */
+.mini-nav-dropdown{min-width:270px !important;max-height:70vh;overflow:auto;}
+
+.mini-home-section{
+  position:relative;
+  z-index:10;
+  background:linear-gradient(180deg,rgba(8,9,13,.72),rgba(9,10,18,.92));
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.mini-home-inner{padding-top:86px !important;padding-bottom:86px !important;}
+.mini-home-header{margin-bottom:42px !important;}
+
+.mini-home-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+
+.mini-home-feature,
+.mini-home-group{
+  background:rgba(10,11,18,.94);
+}
+
+.mini-home-feature{
+  padding:58px 54px;
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.mini-home-kicker,
+.mini-home-group-label{
+  font-family:var(--font-sans);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.mini-home-kicker{color:var(--red-bright);margin-bottom:16px;}
+
+.mini-home-feature h3{
+  font-family:var(--font-title);
+  font-size:clamp(32px,3.4vw,50px);
+  line-height:1;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.mini-home-feature p{
+  font-family:var(--font-sans);
+  font-size:18px;
+  line-height:1.7;
+  color:rgba(221,218,232,.68);
+  max-width:650px;
+  margin-bottom:26px;
+}
+
+.mini-home-groups{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:1px;
+  background:var(--border);
+}
+
+.mini-home-group{
+  padding:36px 38px;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  transition:background .25s ease,transform .25s ease;
+}
+
+.mini-home-group:hover{
+  background:var(--surface);
+}
+
+.mini-home-group.warhammer .mini-home-group-label{color:var(--red-bright);}
+.mini-home-group.starcraft .mini-home-group-label{color:var(--teal);}
+
+.mini-home-group strong{
+  font-family:var(--font-title);
+  font-size:28px;
+  font-weight:600;
+  color:var(--white);
+  margin:8px 0 10px;
+}
+
+.mini-home-group span:last-child{
+  font-family:var(--font-sans);
+  font-size:14px;
+  line-height:1.65;
+  color:var(--muted);
+}
+
+@media(max-width:900px){
+  .mini-home-layout{grid-template-columns:1fr;}
+  .mini-home-feature{padding:44px 32px;min-height:0;}
+  .mini-home-groups{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+}
+
+@media(max-width:650px){
+  .mini-home-inner{padding-top:60px !important;padding-bottom:60px !important;}
+  .mini-home-groups{grid-template-columns:1fr;}
+  .mini-home-feature,.mini-home-group{padding:32px 24px;}
+}
