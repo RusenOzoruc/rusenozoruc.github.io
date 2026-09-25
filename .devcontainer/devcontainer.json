@@ -1,0 +1,12 @@
+{
+  "name": "RMO Website Preview",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Website Preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "nohup python3 -m http.server 8000 --bind 0.0.0.0 > /tmp/rmo-site-preview.log 2>&1 &"
+}
