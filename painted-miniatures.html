@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#D94444">
+<title>Painted Miniatures — Ruşen M. Özoruç</title>
+<meta name="description" content="Painted Warhammer and StarCraft tabletop miniatures by Ruşen M. Özoruç, with photos, paint dates, notes and collection statistics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{--ink:#08090D;--deep:#0C0D14;--surface:#111320;--border:rgba(220,150,150,.1);--border-hi:rgba(220,150,150,.25);--red:#B83232;--red-bright:#D94444;--red-dim:rgba(184,50,50,.12);--violet:#7B6FE8;--teal:#3BBFB0;--parchment:#EDE0C4;--white:#DDDAE8;--muted:#7A788A;--font-title:'Source Serif 4',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--white);font-family:var(--font-sans);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:15px 34px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,13,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;width:58px;height:58px}.nav-logo img{width:100%;height:100%;object-fit:contain}
+.mini-page-nav{display:flex;gap:24px;align-items:center}.mini-page-nav a{font:700 11px var(--font-sans);letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);text-decoration:none}.mini-page-nav a:hover{color:var(--white)}.mini-page-nav .active{color:var(--teal)}
+@media(max-width:700px){nav{padding:12px 18px}.nav-logo{width:48px;height:48px}.mini-page-nav{gap:12px}.mini-page-nav a{font-size:9px}}
+</style>
+<link rel="stylesheet" href="assets/modernization.css">
+<link rel="stylesheet" href="assets/miniatures.css">
+</head>
+<body>
+<canvas id="mini-bg"></canvas>
+<nav>
+  <a class="nav-logo" href="index.html" aria-label="Home"><img src="assets/logo-rmo.svg" alt="RMÖ d20 logo"></a>
+  <div class="mini-page-nav">
+    <a href="index.html">Home</a>
+    <a href="#collection" class="active">Collection</a>
+    <a href="#stats">Stats</a>
+  </div>
+</nav>
+
+<main class="mini-page">
+  <div class="mini-shell">
+    <section class="mini-hero">
+      <div class="mini-hero-copy">
+        <div class="mini-eyebrow">The Painting Desk</div>
+        <h1 class="mini-title">Painted <em>Miniatures</em></h1>
+        <p class="mini-lede">A visual archive of the miniatures I paint. Each finished entry can hold multiple photos, the date I finished painting it, its game and faction, and notes about the paint job in my own words.</p>
+      </div>
+      <div class="mini-stats" id="stats">
+        <div class="mini-stat"><div class="mini-stat-num">0</div><div class="mini-stat-label">Painted entries</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">0</div><div class="mini-stat-label">Photos published</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">10</div><div class="mini-stat-label">Collection groups</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">—</div><div class="mini-stat-label">Latest paint date</div></div>
+      </div>
+    </section>
+
+    <section id="collection">
+      <div class="mini-toolbar">
+        <div class="mini-filter-group">
+          <label class="mini-filter-label" for="mini-system-filter">Game</label>
+          <select class="mini-filter" id="mini-system-filter">
+            <option value="all">All games</option>
+            <option value="warhammer">Warhammer</option>
+            <option value="starcraft">StarCraft</option>
+          </select>
+        </div>
+        <div class="mini-filter-group">
+          <label class="mini-filter-label" for="mini-faction-filter">Faction / collection</label>
+          <select class="mini-filter" id="mini-faction-filter"><option value="all">All factions</option></select>
+        </div>
+      </div>
+
+      <section class="mini-system" id="warhammer">
+        <div class="mini-system-head">
+          <div><div class="mini-system-label warhammer">Warhammer</div><h2 class="mini-system-title">The Armies</h2></div>
+          <div class="mini-system-count">0 painted entries</div>
+        </div>
+        <div class="mini-factions">
+          <a class="mini-faction" id="world-eaters" href="#world-eaters"><div class="mini-faction-name">World Eaters</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="emperors-children" href="#emperors-children"><div class="mini-faction-name">Emperor's Children</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="adeptus-astartes" href="#adeptus-astartes"><div class="mini-faction-name">Adeptus Astartes</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="orks" href="#orks"><div class="mini-faction-name">Orks</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="death-guard" href="#death-guard"><div class="mini-faction-name">Death Guard</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="thousand-sons" href="#thousand-sons"><div class="mini-faction-name">Thousand Sons</div><div class="mini-faction-count">0 published</div></a>
+        </div>
+      </section>
+
+      <section class="mini-system" id="starcraft">
+        <div class="mini-system-head">
+          <div><div class="mini-system-label starcraft">StarCraft</div><h2 class="mini-system-title">The Koprulu Sector</h2></div>
+          <div class="mini-system-count">0 painted entries</div>
+        </div>
+        <div class="mini-factions">
+          <a class="mini-faction" id="terran" href="#terran"><div class="mini-faction-name">Terran</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="zerg" href="#zerg"><div class="mini-faction-name">Zerg</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="protoss" href="#protoss"><div class="mini-faction-name">Protoss</div><div class="mini-faction-count">0 published</div></a>
+          <a class="mini-faction" id="terrain" href="#terrain"><div class="mini-faction-name">Terrain</div><div class="mini-faction-count">0 published</div></a>
+        </div>
+      </section>
+
+      <div class="mini-gallery" id="mini-gallery"></div>
+      <div class="mini-empty" id="mini-filter-empty">
+        <h3>The display case is ready.</h3>
+        <p>No painted miniature entries have been published yet. When you give me the first miniature's photos, paint date, faction, and your note, I'll add it here and the homepage's “Most Recent Miniatures” area will update with it.</p>
+      </div>
+
+      <div class="mini-note-box">
+        <strong>What each miniature entry can contain</strong>
+        <p>One hero photo plus additional angles/detail photos, miniature name, game, faction, date painted, your personal painting note, and optional details such as model type, unit, paint scheme, basing, or status.</p>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="assets/miniatures.js"></script>
+</body>
+</html>
