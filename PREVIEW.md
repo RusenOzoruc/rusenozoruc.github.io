@@ -1,29 +1,23 @@
-# Preview modernization-v1 on Windows
+# Preview modernization-v1 safely
 
-Codespaces is no longer required for previewing this branch.
+No programs or scripts are required.
 
-## Easiest method
+## Windows preview
 
-1. On GitHub, make sure the selected branch is `modernization-v1`.
+1. On GitHub, switch the repository to the `modernization-v1` branch.
 2. Click the green **Code** button.
 3. Choose **Download ZIP**.
-4. Extract the ZIP to a normal folder on your PC.
+4. Extract the ZIP.
 5. Open the extracted folder.
-6. Double-click **preview.bat**.
-7. Keep the preview window open while browsing the site.
+6. Double-click **index.html**.
 
-Your browser opens automatically at a local address such as `http://127.0.0.1:8000/`.
+Your normal web browser will open the modernization branch locally.
 
-If port 8000 is busy, the preview automatically tries ports 8001 through 8010.
+## Important
 
-## When finished
+- Do not run any .bat, .cmd, .ps1, or .exe files.
+- This does not modify `main`.
+- This does not publish the branch.
+- This does not change the live website.
 
-Close the preview window, or press **Ctrl+C** inside it.
-
-## Safety
-
-- This previews only the downloaded `modernization-v1` files.
-- It does not merge anything.
-- It does not modify `main`.
-- It does not publish the branch.
-- It does not change the live website.
+Most of this site is plain HTML, CSS, and JavaScript, so direct browser preview is sufficient for visual review.
