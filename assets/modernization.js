@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   const translations={
     tr:{
-      'About':'Hakkında',
-      'Original Stories':'Özgün Hikâyeler',
-      'Worldbuilding':'Dünya Kurma',
+      'About':'Hakkımda',
+      'Original Stories':'Özgün Hikâyelerim',
+      'Worldbuilding':'Dünya İnşası',
       'Reviews':'İncelemeler',
       'Book Reviews':'Kitap İncelemeleri',
-      'Painted Miniatures':'Boyanmış Minyatürler',
+      'Painted Miniatures':'Minyatürler',
       'IRL':'Günlük',
       'Subscribe':'Abone Ol',
       'Fantasy':'Fantastik',
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded',()=> {
       'Terran':'Terran',
       'Zerg':'Zerg',
       'Protoss':'Protoss',
-      'Painted Miniatures':'Boyanmış Minyatürler',
+      'Painted Miniatures':'Minyatürler',
       'The Painting Desk':'Boyama Masası',
       'Most Recent Miniatures':'En Son Boyanan Minyatürler',
       'Open Miniature Gallery':'Minyatür Galerisini Aç',
