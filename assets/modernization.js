@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=> {
   });
 
   // Search + sort for review archives.
-  const isReviewArchive=/\/archive-rv-[^/]+\.html$/i.test(window.location.pathname) || /^archive-rv-[^/]+\.html$/i.test(window.location.pathname.replace(/^\//,''));
+  const isReviewArchive=/\/reviews\/(fantasy|scifi|nonfiction|other)\.html$/i.test(window.location.pathname);
   const grid=isReviewArchive ? document.querySelector('.entries-grid') : null;
   const cards=grid ? [...grid.querySelectorAll('.entry-card')] : [];
   if(grid && cards.length){
