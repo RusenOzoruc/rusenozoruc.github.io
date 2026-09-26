@@ -147,6 +147,12 @@ document.addEventListener('DOMContentLoaded',()=> {
     "IRL — Blog Posts — Ruşen M. Özoruç": "Günlük — Blog Yazıları — Ruşen M. Özoruç",
     "Back from Hiatus — Ruşen M. Özoruç": "Uzun Bir Aradan Sonra — Ruşen M. Özoruç",
     "Home": "Ana Sayfa",
+    "Browse Reviews": "İncelemelere Göz At",
+    "Explore Worldbuilding": "Dünya İnşasını Keşfet",
+    "Explore Stories": "Hikâyeleri Keşfet",
+    "Return Home": "Ana Sayfaya Dön",
+    "The page you were looking for has wandered beyond the map.": "Aradığınız sayfa haritanın dışına çıkmış görünüyor.",
+    "Page Not Found": "Sayfa Bulunamadı",
     "By": "Yazan",
     "Back to Reviews": "İncelemelere Dön",
     "← All Reviews": "← Tüm İncelemeler",
@@ -179,6 +185,7 @@ document.addEventListener('DOMContentLoaded',()=> {
     "◈ Alt-History": "◈ Alternatif Tarih",
     "Alternate": "Alternatif",
     "History": "Tarih",
+    "Other · History": "Diğer · Tarih",
     "Worlds built on different pasts — civilisations that took another road and never looked back.": "Farklı geçmişler üzerine kurulmuş dünyalar; başka bir yola sapmış ve bir daha geriye bakmamış medeniyetler.",
     "0 worlds": "0 dünya",
     "Original": "Özgün",
@@ -263,7 +270,8 @@ document.addEventListener('DOMContentLoaded',()=> {
     "Painted Miniatures — Ruşen M. Özoruç": "Minyatürler — Ruşen M. Özoruç",
     "Miniature Preview — Painted Miniatures — Ruşen M. Özoruç": "Minyatür Önizlemesi — Ruşen M. Özoruç",
     "IRL — Blog Posts — Ruşen M. Özoruç": "Günlük — Blog Yazıları — Ruşen M. Özoruç",
-    "Back from Hiatus — Ruşen M. Özoruç": "Uzun Bir Aradan Sonra — Ruşen M. Özoruç"
+    "Back from Hiatus — Ruşen M. Özoruç": "Uzun Bir Aradan Sonra — Ruşen M. Özoruç",
+    "Page Not Found — Ruşen M. Özoruç": "Sayfa Bulunamadı — Ruşen M. Özoruç"
   }
 };
   const subpageOriginalText=new WeakMap();
