@@ -207,28 +207,28 @@ document.addEventListener('DOMContentLoaded',()=> {
       '#miniatures .mini-home-group.warhammer strong':'7 koleksiyon',
       '#miniatures .mini-home-group.starcraft strong':'4 koleksiyon',
 
-      '#irl .irl-aside-tag':'Gerçek Hayatta',
+      '#irl .irl-aside-tag':'Günlük',
       '#irl .irl-aside-title':'Sayfanın Ötesinde',
-      '#irl .irl-aside-desc':'Hikâyelerin dışında kalan şeyler için bir alan: yazmak üzerine düşünceler, okuma hayatı, yaratıcı süreç ve o sıralar kafama taktığım ne varsa.',
-      '#irl .irl-aside-note':'Söylemek istediğim her şey bir incelemeye ya da hikâyeye sığmıyor. Geri kalanı burada.',
+      '#irl .irl-aside-desc':'Hikâyelerin dışında kalan her şey için bir alan: yazmak üzerine düşünceler, okuma hayatı, yaratıcı süreç ve o sıralar kafamı meşgul eden ne varsa.',
+      '#irl .irl-aside-note':'Söylemek istediğim her şey bir incelemeye ya da hikâyeye sığmıyor. Geri kalanına burada yer veriyorum.',
       '#irl .irl-post-cat':'Güncelleme',
-      '#irl .irl-post-title a':'Aradan Sonra Geri Döndüm',
-      '#irl .irl-post-body':'Vay be, epey zaman geçmiş. Bir IRL yazısı yazmayalı gerçekten uzun zaman oldu; bu siteyi açmamdan neredeyse iki yıl öncesine dayanıyor. O zamanlar ücretsiz deneme sürümündeki eski bir WordPress sitesindeydim....',
+      '#irl .irl-post-title a':'Uzun Bir Aradan Sonra',
+      '#irl .irl-post-body':'Vay be, epey zaman geçmiş. Bir günlük yazısı yazmayalı gerçekten uzun zaman oldu; hatta bu siteyi açmamdan neredeyse iki yıl öncesine dayanıyor. O zamanlar ücretsiz bir WordPress sitesindeydim....',
       '#irl .irl-post-link':'Yazıyı Oku →',
 
-      '#manifesto .manifesto-text':'Hikâyeler, başka türlü açıklayamadığımız şeyleri anlamlandırmanın her zaman bir yolu oldu. Kurgu, bugünden kaçıştan ibaret değildir. Bundan daha tuhaf ve daha kullanışlı bir şeydir. Kuralların yeterince farklı olduğu bir alan kurar; böylece kendi dünyamızı daha net, kendimizi ise daha dürüst görebiliriz. Gerçek dünya omuzlarımıza fazla ağır çöktüğünde de bize durabileceğimiz başka bir yer verir; oradan dönüp ona taze gözlerle bakabiliriz.',
+      '#manifesto .manifesto-text':'Hikâyeler, başka türlü açıklayamadığımız şeyleri anlamlandırmanın en eski yollarından biri. Kurgu yalnızca bugünden kaçmak değildir; bundan daha tuhaf ve daha işe yarar bir şeydir. Kuralları biraz farklı bir alan kurar ve bu sayede kendi dünyamızı daha açık, kendimizi ise daha dürüst görebiliriz. Gerçek dünya üzerimize fazla ağır geldiğinde de bize başka bir yerde durma şansı verir; oradan dönüp her şeye taze gözlerle bakabiliriz.',
 
-      '#subscribe .subscribe-tag':'Haberdar Ol',
+      '#subscribe .subscribe-tag':'Yeni Yazılardan Haberdar Ol',
       '#subscribe .subscribe-title':'Arşive Katıl',
-      '#subscribe .subscribe-desc':'Okumaya değer bir şey yazdığımda doğrudan gelen kutunuza göndereceğim. Yeni hikâyeler, incelemeler, dünya inşası yazıları ve blog gönderileri — gürültü yok, yalnızca iyi şeyler.',
+      '#subscribe .subscribe-desc':'Yeni bir hikâye, inceleme, dünya inşası yazısı ya da blog gönderisi yayımladığımda doğrudan gelen kutunuza gelsin. Gereksiz e-posta yok; yalnızca yeni içerikler.',
       '#subscribe .subscribe-btn':'Abone Ol',
-      '#subscribe .subscribe-success':'✦ Aramıza katıldın. Arşive hoş geldin.',
+      '#subscribe .subscribe-success':'✦ Arşive katıldın. Hoş geldin.',
       '#subscribe .subscribe-note':'Spam yok. Sabit bir gönderim takvimi yok. İstediğin zaman abonelikten çıkabilirsin.',
 
-      'footer .footer-desc':'Fantastik, bilimkurgu ve spekülatif kurgu ekseninde özgün hikâyeler, dünya inşası ve kitap incelemeleri.',
+      'footer .footer-desc':'Fantastik, bilimkurgu ve spekülatif kurgu üzerine özgün hikâyeler, dünya inşası projeleri ve kitap incelemeleri.',
       'footer .footer-col-title:nth-of-type(1)':'Gezin',
-      'footer .footer-copy':'© 2025 Ruşen M. Özoruç — Tüm dünyaların hakları saklıdır',
-      'footer .footer-creed':'Her harita aynı zamanda bir hikâyedir'
+      'footer .footer-copy':'© 2025 Ruşen M. Özoruç — Tüm hakları saklıdır',
+      'footer .footer-creed':'Her harita aynı zamanda bir hikâye anlatır'
     }
   };
 
