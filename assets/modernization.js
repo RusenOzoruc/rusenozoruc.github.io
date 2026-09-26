@@ -604,6 +604,36 @@ document.addEventListener('DOMContentLoaded',()=> {
     translateUI(value);
   }
 
+
+  function ensureMobileMenu(){
+    const hamburger=document.querySelector('.hamburger');
+    if(!hamburger || document.getElementById('mobile-menu')) return;
+
+    const menu=document.createElement('div');
+    menu.className='mobile-menu';
+    menu.id='mobile-menu';
+    menu.innerHTML=
+      '<ul class="mobile-menu-links">'+
+        '<li><a href="index.html#about" onclick="closeMobileMenu()">About</a></li>'+
+        '<li><a href="index.html#fiction" onclick="closeMobileMenu()">Original Stories</a></li>'+
+        '<li><a href="index.html#worlds" onclick="closeMobileMenu()">Worldbuilding</a></li>'+
+        '<li><a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a></li>'+
+        '<li><a href="miniatures/index.html" onclick="closeMobileMenu()">Painted Miniatures</a></li>'+
+        '<li><a href="irl/index.html" onclick="closeMobileMenu()">IRL</a></li>'+
+        '<li><a href="index.html#subscribe" onclick="closeMobileMenu()">Subscribe</a></li>'+
+      '</ul>';
+    document.body.appendChild(menu);
+  }
+
+  // Safe global fallbacks for pages whose legacy inline functions expect a menu.
+  if(typeof window.closeMobileMenu!=='function'){
+    window.closeMobileMenu=function(){
+      document.getElementById('mobile-menu')?.classList.remove('open');
+      document.getElementById('hamburger')?.classList.remove('open');
+      document.body.style.overflow='';
+    };
+  }
+
   function mountControls(){
     if(document.querySelector('.rmo-site-controls')) return;
     const wrap=document.createElement('div');
@@ -635,6 +665,7 @@ document.addEventListener('DOMContentLoaded',()=> {
   }
 
   document.addEventListener('DOMContentLoaded',()=>{
+    ensureMobileMenu();
     mountControls();
     setLanguage(localStorage.getItem(LANG_KEY)||'en',false);
     setTheme(localStorage.getItem(THEME_KEY)==='light'?'light':'dark',false);
