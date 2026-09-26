@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded',()=> {
 /* ---------- GLOBAL THEME + LANGUAGE CONTROLS ---------- */
 (() => {
   const ROOT=document.documentElement;
-  const THEME_KEY='rmo-theme';
+  const THEME_KEY='rmo-theme-v2';
   const LANG_KEY='rmo-lang';
 
   const translations={
@@ -505,19 +505,48 @@ document.addEventListener('DOMContentLoaded',()=> {
 
 
   function rememberAndTranslate(el,lang){
-    if(!el || el.children.length) return;
+    if(!el) return;
+
+    // Translate only the element's own text node so icons/arrows/spans survive.
+    const textNode=[...el.childNodes].find(node=>
+      node.nodeType===Node.TEXT_NODE && (node.nodeValue||'').trim()
+    );
+
+    if(textNode){
+      if(!originalText.has(textNode)) originalText.set(textNode,textNode.nodeValue);
+      const stored=originalText.get(textNode)||'';
+      const original=stored.trim();
+
+      if(lang==='en'){
+        textNode.nodeValue=stored;
+        return;
+      }
+
+      const mapped=translations[lang]?.[original];
+      if(mapped){
+        const before=(stored.match(/^\s*/)||[''])[0];
+        const after=(stored.match(/\s*$/)||[''])[0];
+        textNode.nodeValue=before+mapped+after;
+      }
+      return;
+    }
+
+    // Fallback for simple leaf elements.
     const raw=(el.textContent||'').trim();
     if(!raw) return;
     if(!originalText.has(el)) originalText.set(el,el.textContent);
     const original=(originalText.get(el)||'').trim();
+
     if(lang==='en'){
       el.textContent=originalText.get(el);
       return;
     }
+
     const mapped=translations[lang]?.[original];
     if(mapped){
-      const before=(originalText.get(el).match(/^\s*/)||[''])[0];
-      const after=(originalText.get(el).match(/\s*$/)||[''])[0];
+      const stored=originalText.get(el)||'';
+      const before=(stored.match(/^\s*/)||[''])[0];
+      const after=(stored.match(/\s*$/)||[''])[0];
       el.textContent=before+mapped+after;
     }
   }
@@ -604,7 +633,7 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   document.addEventListener('DOMContentLoaded',()=>{
     mountControls();
-    setTheme(localStorage.getItem(THEME_KEY)||'dark',false);
+    setTheme(localStorage.getItem(THEME_KEY)==='light'?'light':'dark',false);
     setLanguage(localStorage.getItem(LANG_KEY)||'en',false);
   });
 })();
