@@ -84,6 +84,8 @@ document.addEventListener('DOMContentLoaded',()=> {
       'Fantasy':'Fantastik',
       'Science Fiction':'Bilimkurgu',
       'Other':'Diğer',
+      'History':'Tarih',
+      'Other · History':'Diğer · Tarih',
       'Fantasy Worlds':'Fantastik Dünyalar',
       'Alternate History':'Alternatif Tarih',
       'Non-Fiction':'Kurgu Dışı',
