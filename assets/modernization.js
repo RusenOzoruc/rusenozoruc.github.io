@@ -127,6 +127,188 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   const originalText=new WeakMap();
 
+
+
+  /* ---------- MANUAL SUBPAGE TRANSLATIONS ---------- */
+  const subpageTextTranslations={
+  "tr": {
+    "Fantasy — Book Reviews — Ruşen M. Özoruç": "Fantastik — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Science Fiction — Book Reviews — Ruşen M. Özoruç": "Bilimkurgu — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Non-Fiction — Book Reviews — Ruşen M. Özoruç": "Kurgu Dışı — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Other — Book Reviews — Ruşen M. Özoruç": "Diğer — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Fantasy — Original Stories — Ruşen M. Özoruç": "Fantastik — Özgün Hikâyelerim — Ruşen M. Özoruç",
+    "Science Fiction — Original Stories — Ruşen M. Özoruç": "Bilimkurgu — Özgün Hikâyelerim — Ruşen M. Özoruç",
+    "Other — Original Stories — Ruşen M. Özoruç": "Diğer — Özgün Hikâyelerim — Ruşen M. Özoruç",
+    "Fantasy Worlds — Worldbuilding — Ruşen M. Özoruç": "Fantastik Dünyalar — Dünya İnşası — Ruşen M. Özoruç",
+    "Science Fiction Worlds — Worldbuilding — Ruşen M. Özoruç": "Bilimkurgu Dünyaları — Dünya İnşası — Ruşen M. Özoruç",
+    "Alternate History — Worldbuilding — Ruşen M. Özoruç": "Alternatif Tarih — Dünya İnşası — Ruşen M. Özoruç",
+    "Painted Miniatures — Ruşen M. Özoruç": "Minyatürler — Ruşen M. Özoruç",
+    "Miniature Preview — Painted Miniatures — Ruşen M. Özoruç": "Minyatür Önizlemesi — Ruşen M. Özoruç",
+    "IRL — Blog Posts — Ruşen M. Özoruç": "Günlük — Blog Yazıları — Ruşen M. Özoruç",
+    "Back from Hiatus — Ruşen M. Özoruç": "Uzun Bir Aradan Sonra — Ruşen M. Özoruç",
+    "Home": "Ana Sayfa",
+    "By": "Yazan",
+    "Back to Reviews": "İncelemelere Dön",
+    "← All Reviews": "← Tüm İncelemeler",
+    "← All Stories": "← Tüm Hikâyeler",
+    "← All Worlds": "← Tüm Dünyalar",
+    "← All Posts": "← Tüm Yazılar",
+    "← Home": "← Ana Sayfa",
+    "Subscribe for updates": "Yeni içeriklerden haberdar ol",
+    "Reviews Home": "İncelemeler Ana Sayfası",
+    "Fantasy reviews will return here as the bilingual review library is rebuilt.": "Fantastik kitap incelemeleri, iki dilli arşiv yeniden hazırlandıkça burada yayımlanacak.",
+    "Science-fiction reviews will return here as the bilingual review library is rebuilt.": "Bilimkurgu kitap incelemeleri, iki dilli arşiv yeniden hazırlandıkça burada yayımlanacak.",
+    "Non-fiction reviews will return here as the bilingual review library is rebuilt.": "Kurgu dışı kitap incelemeleri, iki dilli arşiv yeniden hazırlandıkça burada yayımlanacak.",
+    "This shelf is being rebuilt in English and Turkish. New reviews will appear here as they are updated.": "Bu bölüm İngilizce ve Türkçe olarak yeniden hazırlanıyor. Güncellenen incelemeler burada yayımlanacak.",
+    "0 reviews": "0 inceleme",
+    "History and other reviews that do not fit neatly into the main shelves will live here.": "Tarih kitapları ve ana kategorilere tam olarak uymayan diğer incelemeler burada yer alacak.",
+    "History & other books.": "Tarih ve diğer kitaplar.",
+    "History is now a dedicated subgenre on this shelf, alongside other books that do not fit neatly into Fantasy, Science Fiction, or Non-Fiction.": "Tarih artık bu bölümde ayrı bir alt tür. Fantastik, Bilimkurgu veya Kurgu Dışı kategorilerine tam olarak uymayan diğer kitaplar da burada yer alacak.",
+    "Stories": "Hikâyeler",
+    "✦ Fantasy": "✦ Fantastik",
+    "◈ Sci-Fi": "◈ Bilimkurgu",
+    "⬡ Other": "⬡ Diğer",
+    "Epic fantasy, grimdark, dark fantasy, mythpunk, romantasy, dark academia and all things fantasy.": "Epik fantastik, grimdark, karanlık fantastik, mitpunk, romantasy, dark academia ve fantastiğin diğer tüm biçimleri.",
+    "Cyberpunk, space opera, military sci-fi, cosmic horror, dystopian, time travel and more.": "Cyberpunk, uzay operası, askerî bilimkurgu, kozmik korku, distopya, zaman yolculuğu ve daha fazlası.",
+    "Alternate history, weird fiction and everything that refuses to fit neatly into a single genre.": "Alternatif tarih, weird fiction ve tek bir türe sığmayı reddeden diğer hikâyeler.",
+    "0 stories": "0 hikâye",
+    "Nothing here yet. Check back soon.": "Henüz burada bir şey yok. Yakında tekrar uğrayın.",
+    "Worlds": "Dünyalar",
+    "Secondary worlds, strange geographies and histories built for worlds that live only on the page.": "Yalnızca sayfalarda yaşayan dünyalar için oluşturulmuş ikincil dünyalar, alışılmadık coğrafyalar ve hayal edilmiş tarihler.",
+    "Future civilisations, interstellar systems and speculative societies built from the ground up.": "Sıfırdan inşa edilmiş gelecek medeniyetleri, yıldızlararası sistemler ve spekülatif toplumlar.",
+    "◈ Alt-History": "◈ Alternatif Tarih",
+    "Alternate": "Alternatif",
+    "History": "Tarih",
+    "Worlds built on different pasts — civilisations that took another road and never looked back.": "Farklı geçmişler üzerine kurulmuş dünyalar; başka bir yola sapmış ve bir daha geriye bakmamış medeniyetler.",
+    "0 worlds": "0 dünya",
+    "Original": "Özgün",
+    "Painted": "Boyanmış",
+    "Miniatures": "Minyatürler",
+    "Painted Miniatures": "Minyatürler",
+    "The Painting Desk": "Boyama Masası",
+    "A visual archive of the miniatures I paint. Each finished entry can hold multiple photos, the date I finished painting it, its game and faction, and notes about the paint job in my own words.": "Boyadığım minyatürlerin görsel arşivi. Tamamlanan her kayıt birden fazla fotoğrafı, boyamayı bitirdiğim tarihi, ait olduğu oyun ve fraksiyonu ve boyama sürecine dair kendi notlarımı içerebilir.",
+    "Painted entries": "Boyanmış kayıtlar",
+    "Photos published": "Yayımlanan fotoğraflar",
+    "Collection groups": "Koleksiyon grupları",
+    "Latest paint date": "Son boyama tarihi",
+    "The Armies": "Ordular",
+    "0 painted entries": "0 boyanmış kayıt",
+    "0 published": "0 yayımlanmış",
+    "The Koprulu Sector": "Koprulu Sektörü",
+    "Preview cards — placeholder images only": "Önizleme kartları — yalnızca geçici görseller",
+    "Preview": "Önizleme",
+    "3 photos": "3 fotoğraf",
+    "4 photos": "4 fotoğraf",
+    "2 photos": "2 fotoğraf",
+    "Miniature Name": "Minyatür Adı",
+    "Your painting note will appear here. You can write about the scheme, techniques, mistakes, favourite details, or anything else you want to remember.": "Boyama notunuz burada görünecek. Renk şeması, kullandığınız teknikler, yaptığınız hatalar, sevdiğiniz ayrıntılar veya hatırlamak istediğiniz başka herhangi bir şey hakkında yazabilirsiniz.",
+    "Painted · DD MMM YYYY": "Boyandı · GG AAA YYYY",
+    "This is where your own note goes. Longer notes can wrap naturally without making the image area smaller.": "Kendi notunuz burada yer alacak. Uzun notlar, görsel alanını küçültmeden doğal biçimde devam edebilir.",
+    "The same card design works for StarCraft, including several angles and a note written by you.": "Aynı kart tasarımı StarCraft için de çalışır; farklı açılardan fotoğraflar ve sizin yazdığınız bir not içerebilir.",
+    "No preview card matches this filter.": "Bu filtreyle eşleşen bir önizleme kartı yok.",
+    "These are temporary layout examples only. Your real painted miniatures will replace them later.": "Bunlar yalnızca geçici yerleşim örnekleri. Daha sonra gerçek boyanmış minyatürleriniz bunların yerini alacak.",
+    "What each miniature entry can contain": "Her minyatür kaydında neler bulunabilir",
+    "One hero photo plus additional angles/detail photos, miniature name, game, faction, date painted, your personal painting note, and optional details such as model type, unit, paint scheme, basing, or status.": "Bir ana fotoğraf ve ek açı/detay fotoğrafları, minyatür adı, oyun, fraksiyon, boyanma tarihi, kişisel boyama notunuz ve isteğe bağlı olarak model türü, birlik, renk şeması, base çalışması veya durum gibi ayrıntılar.",
+    "← Back to miniature gallery": "← Minyatür galerisine dön",
+    "Preview entry": "Önizleme kaydı",
+    "Individual miniature page preview": "Tekil minyatür sayfası önizlemesi",
+    "Faction": "Fraksiyon",
+    "Game": "Oyun",
+    "Photos": "Fotoğraflar",
+    "PLACEHOLDER DATA — this page is only showing how a real miniature entry will look.": "GEÇİCİ VERİ — bu sayfa yalnızca gerçek bir minyatür kaydının nasıl görüneceğini gösteriyor.",
+    "From the painting desk": "Boyama masasından",
+    "Painting Notes": "Boyama Notları",
+    "This is where your own note about the miniature will live. It can be short, or it can become a full painting journal entry when a model deserves more space.": "Minyatür hakkındaki kendi notunuz burada yer alacak. Kısa olabilir ya da bir model daha fazla alanı hak ediyorsa tam bir boyama günlüğü yazısına dönüşebilir.",
+    "You can write about the colour scheme, techniques you tried, mistakes you made, details you are proud of, what you would change next time, basing choices, or simply what the model was like to paint.": "Renk şeması, denediğiniz teknikler, yaptığınız hatalar, gurur duyduğunuz ayrıntılar, bir dahaki sefere değiştireceğiniz şeyler, base tercihleri veya yalnızca modeli boyamanın nasıl bir deneyim olduğu hakkında yazabilirsiniz.",
+    "When this becomes a real miniature page, this entire area is yours. There is no fixed template forcing you to fill in technical fields you do not care about.": "Bu gerçek bir minyatür sayfasına dönüştüğünde bu alan tamamen size ait olacak. İlgilenmediğiniz teknik alanları doldurmanızı zorlayan sabit bir şablon yok.",
+    "◎ IRL": "◎ Günlük",
+    "IRL —": "Günlük —",
+    "Blog Posts": "Blog Yazıları",
+    "Blog posts, essays, process notes and everything that does not fit anywhere else.": "Blog yazıları, denemeler, süreç notları ve başka hiçbir yere tam olarak sığmayan her şey.",
+    "1 post": "1 yazı",
+    "All IRL Posts": "Tüm Günlük Yazıları",
+    "Back from Hiatus": "Uzun Bir Aradan Sonra",
+    "Update · June 2026": "Güncelleme · Haziran 2026",
+    "June 2026": "Haziran 2026",
+    "Read →": "Oku →",
+    "Boy oh boy, it has been a while. A long while since I've written an IRL post, almost two years before I launched this website. Back then I was on an old WordPress free trial site....": "Vay be, epey zaman geçmiş. Bir günlük yazısı yazmayalı gerçekten uzun zaman oldu; hatta bu siteyi açmamdan neredeyse iki yıl öncesine dayanıyor. O zamanlar ücretsiz deneme sürümündeki eski bir WordPress sitesindeydim....",
+    "Update": "Güncelleme",
+    "Boy oh boy, it has been a while. A long while since I've written an IRL post, almost two years before I launched this website. Back then I was on an old WordPress free trial site. Now I have a better one, thanks to Claude! Anyway, I would like to use this blog post to tell you what has been going on, what I have been doing, why I haven't been uploading any videos, and what my future plans are. So here we go.": "Vay be, epey zaman geçmiş. Bir günlük yazısı yazmayalı gerçekten uzun zaman oldu; hatta bu siteyi açmamdan neredeyse iki yıl öncesine dayanıyor. O zamanlar ücretsiz deneme sürümündeki eski bir WordPress sitesindeydim. Şimdi Claude sayesinde çok daha iyi bir sitem var! Her neyse, bu yazıda neler olup bittiğini, neler yaptığımı, neden video yüklemediğimi ve gelecek planlarımın neler olduğunu anlatmak istiyorum. Başlayalım.",
+    "First: Burnout.": "Birincisi: Tükenmişlik.",
+    "Second: Financial roadblocks.": "İkincisi: Maddi engeller.",
+    "Building a PC in Türkiye during a period of both global supply chain disruption and a weakening lira is not for the faint of heart. Every month I delayed a component purchase, the price had moved. The PC is built now and I am happy with it, but the financial stress of the whole process bled into everything else, including this channel.": "Küresel tedarik zincirinin aksadığı ve liranın değer kaybettiği bir dönemde Türkiye'de bilgisayar toplamak kolay iş değil. Bir parçayı almayı her ertelediğim ay fiyatı değişmişti. Bilgisayar artık hazır ve sonuçtan memnunum, fakat bütün sürecin yarattığı maddi stres kanal dâhil hayatımın diğer alanlarına da yansıdı.",
+    "Third: Space Marine 2.": "Üçüncüsü: Space Marine 2.",
+    "I got caught up in Space Marine 2. About 200 hours across two months, so yes, I was kind of addicted. I can see some of you rolling your eyes at that, but hear me out, because this one actually has a silver lining.": "Space Marine 2'ye fazlasıyla kapıldım. İki ayda yaklaşık 200 saat oynadım; yani evet, biraz bağımlısı oldum. Bazılarınızın bunu okuyup göz devirdiğini tahmin edebiliyorum ama beni dinleyin, çünkü bunun aslında iyi bir tarafı da oldu.",
+    "I will keep making worldbuilding and book review videos, that will not change. What will change is that I am going to diversify my scope. Getting deep into Space Marine 2 pulled me into Warhammer 40K lore, then into the wider Warhammer fandom, then into the broader world of grimdark tabletop games. Some of you may already know where this is going: I also got into the lore of Trench Crusade.": "Dünya inşası ve kitap inceleme videoları yapmaya devam edeceğim; bu değişmeyecek. Değişecek olan şey, ele aldığım konuları çeşitlendirmem. Space Marine 2'ye derinlemesine dalmak beni önce Warhammer 40K evrenine, ardından daha geniş Warhammer topluluğuna ve sonrasında grimdark masaüstü oyunlarının daha geniş dünyasına çekti. Bazılarınız bunun nereye gittiğini şimdiden anlamış olabilir: Trench Crusade evrenine de sardım.",
+    "So what does this mean for the channel?": "Peki bu kanal için ne anlama geliyor?",
+    "It means expansion. I will be making Warhammer 40K and Trench Crusade lore videos alongside the content I was already producing. Based on how those land with you, I want to keep going further. I am already thinking seriously about the world of Cyberpunk 2077 as another direction to explore down the line.": "Bu, kapsamın genişlemesi demek. Zaten ürettiğim içeriklerin yanında Warhammer 40K ve Trench Crusade lore videoları da yapacağım. Bunların sizde nasıl karşılık bulduğuna göre daha da ileri gitmek istiyorum. İleride keşfedebileceğim başka bir yön olarak Cyberpunk 2077 dünyasını da şimdiden ciddi biçimde düşünüyorum.",
+    "What comes next.": "Sırada ne var?",
+    "The first new video is already in the scripting phase. It will be a Warhammer 40K lore piece, and I want it to set the tone for this new direction properly. After that, I plan to get back into a more consistent rhythm, though I am going to be realistic about the schedule this time. One video a week rather than two. Sustainable over burnout, every time.": "İlk yeni videonun senaryosu şimdiden hazırlanıyor. Warhammer 40K lore üzerine olacak ve bu yeni yönün tonunu doğru biçimde belirlemesini istiyorum. Sonrasında daha düzenli bir ritme dönmeyi planlıyorum, fakat bu kez takvim konusunda daha gerçekçi olacağım. Haftada iki video yerine bir video. Her zaman tükenmişlik yerine sürdürülebilirlik.",
+    "The blog will also be more active going forward. IRL posts like this one, plus written versions of some of the video topics for people who prefer to read. The website has come a long way and it feels like a waste not to use it properly.": "Bundan sonra blog da daha aktif olacak. Bunun gibi günlük yazılarının yanında, okumayı tercih edenler için bazı video konularının yazılı sürümleri de gelecek. Site çok yol katetti ve onu gerektiği gibi kullanmamak artık israf gibi geliyor.",
+    "Thank you for sticking around during the silence. It genuinely means a lot. See you at the next one.": "Bu sessizlik boyunca burada kaldığınız için teşekkür ederim. Gerçekten benim için çok şey ifade ediyor. Bir sonrakinde görüşürüz."
+  }
+};
+  const subpageTitleTranslations={
+  "tr": {
+    "Fantasy — Book Reviews — Ruşen M. Özoruç": "Fantastik — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Science Fiction — Book Reviews — Ruşen M. Özoruç": "Bilimkurgu — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Non-Fiction — Book Reviews — Ruşen M. Özoruç": "Kurgu Dışı — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Other — Book Reviews — Ruşen M. Özoruç": "Diğer — Kitap İncelemeleri — Ruşen M. Özoruç",
+    "Fantasy — Original Stories — Ruşen M. Özoruç": "Fantastik — Özgün Hikâyelerim — Ruşen M. Özoruç",
+    "Science Fiction — Original Stories — Ruşen M. Özoruç": "Bilimkurgu — Özgün Hikâyelerim — Ruşen M. Özoruç",
+    "Other — Original Stories — Ruşen M. Özoruç": "Diğer — Özgün Hikâyelerim — Ruşen M. Özoruç",
+    "Fantasy Worlds — Worldbuilding — Ruşen M. Özoruç": "Fantastik Dünyalar — Dünya İnşası — Ruşen M. Özoruç",
+    "Science Fiction Worlds — Worldbuilding — Ruşen M. Özoruç": "Bilimkurgu Dünyaları — Dünya İnşası — Ruşen M. Özoruç",
+    "Alternate History — Worldbuilding — Ruşen M. Özoruç": "Alternatif Tarih — Dünya İnşası — Ruşen M. Özoruç",
+    "Painted Miniatures — Ruşen M. Özoruç": "Minyatürler — Ruşen M. Özoruç",
+    "Miniature Preview — Painted Miniatures — Ruşen M. Özoruç": "Minyatür Önizlemesi — Ruşen M. Özoruç",
+    "IRL — Blog Posts — Ruşen M. Özoruç": "Günlük — Blog Yazıları — Ruşen M. Özoruç",
+    "Back from Hiatus — Ruşen M. Özoruç": "Uzun Bir Aradan Sonra — Ruşen M. Özoruç"
+  }
+};
+  const subpageOriginalText=new WeakMap();
+  let subpageOriginalTitle=null;
+
+  function applySubpageTranslations(lang){
+    const path=window.location.pathname.replace(/\/+$/,'/');
+    const isHome=path==='/' || /\/index\.html$/i.test(path) && !/\/(irl|miniatures)\/index\.html$/i.test(path);
+    if(isHome) return;
+
+    const map=subpageTextTranslations[lang]||{};
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode(node){
+        const parent=node.parentElement;
+        if(!parent || ['SCRIPT','STYLE','NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        return node.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+      }
+    });
+    const nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(node=>{
+      if(!subpageOriginalText.has(node)) subpageOriginalText.set(node,node.nodeValue);
+      const original=subpageOriginalText.get(node);
+      const trimmed=original.trim();
+      if(lang==='en'){
+        node.nodeValue=original;
+        return;
+      }
+      const mapped=map[trimmed];
+      if(mapped!==undefined){
+        const before=(original.match(/^\s*/)||[''])[0];
+        const after=(original.match(/\s*$/)||[''])[0];
+        node.nodeValue=before+mapped+after;
+      }
+    });
+
+    if(subpageOriginalTitle===null) subpageOriginalTitle=document.title;
+    if(lang==='en'){
+      document.title=subpageOriginalTitle;
+    }else{
+      document.title=subpageTitleTranslations[lang]?.[subpageOriginalTitle]||subpageOriginalTitle;
+    }
+  }
+
   /* ---------- MANUAL HOMEPAGE TRANSLATIONS ---------- */
   const homepageTranslations={
     tr:{
@@ -361,6 +543,7 @@ document.addEventListener('DOMContentLoaded',()=> {
     if(sort) sort.setAttribute('aria-label',lang==='tr'?'İncelemeleri sırala':'Sort reviews');
 
     applyHomepageTranslations(lang);
+    applySubpageTranslations(lang);
     document.dispatchEvent(new CustomEvent('rmo:languagechange',{detail:{lang}}));
   }
 
