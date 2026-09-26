@@ -1273,3 +1273,91 @@ html[data-theme="light"] #toast{
   color:#27242B !important;
   border-color:rgba(157,45,45,.28) !important;
 }
+
+
+/* ---------- HOMEPAGE MINIATURE LIGHT-MODE FIX ---------- */
+html[data-theme="light"] .mini-home-section{
+  background:linear-gradient(180deg,#F3EFE7 0%,#ECE6DD 100%) !important;
+  border-color:rgba(61,46,46,.14) !important;
+}
+
+html[data-theme="light"] .mini-home-layout{
+  background:rgba(61,46,46,.12) !important;
+  border-color:rgba(61,46,46,.14) !important;
+}
+
+html[data-theme="light"] .mini-home-feature,
+html[data-theme="light"] .mini-home-group{
+  background:#FBF8F3 !important;
+}
+
+html[data-theme="light"] .mini-home-feature:hover,
+html[data-theme="light"] .mini-home-group:hover{
+  background:#F2ECE4 !important;
+}
+
+html[data-theme="light"] .mini-home-feature h3,
+html[data-theme="light"] .mini-home-feature h3 a,
+html[data-theme="light"] .mini-home-group strong{
+  color:#242126 !important;
+}
+
+html[data-theme="light"] .mini-home-feature p{
+  color:#5E5960 !important;
+  opacity:1 !important;
+}
+
+html[data-theme="light"] .mini-home-preview-meta,
+html[data-theme="light"] .mini-home-group span:last-child{
+  color:#6B656C !important;
+  opacity:1 !important;
+}
+
+html[data-theme="light"] .mini-home-kicker{
+  color:#A92F2F !important;
+}
+
+html[data-theme="light"] .mini-home-group.warhammer .mini-home-group-label{
+  color:#A92F2F !important;
+}
+
+html[data-theme="light"] .mini-home-group.starcraft .mini-home-group-label{
+  color:#1F756F !important;
+}
+
+html[data-theme="light"] .mini-home-preview-image{
+  background:#E6DFD6 !important;
+  border-color:rgba(61,46,46,.22) !important;
+}
+
+html[data-theme="light"] .mini-home-preview-image span{
+  background:rgba(255,253,250,.94) !important;
+  color:#5B4BBE !important;
+  border-color:rgba(61,46,46,.14) !important;
+}
+
+html[data-theme="light"] .mini-home-feature .btn-red{
+  color:#A92F2F !important;
+  border-color:rgba(169,47,47,.48) !important;
+  background:rgba(169,47,47,.03) !important;
+}
+
+html[data-theme="light"] .mini-home-feature .btn-red:hover{
+  color:#7F2020 !important;
+  background:rgba(169,47,47,.10) !important;
+  border-color:#A92F2F !important;
+}
+
+html[data-theme="light"] .mini-home-header .section-desc{
+  color:#5E5960 !important;
+  opacity:1 !important;
+}
+
+html[data-theme="light"] .mini-home-header .section-title{
+  color:#242126 !important;
+}
+
+html[data-theme="light"] .mini-home-header .section-rule::before,
+html[data-theme="light"] .mini-home-header .section-rule::after{
+  background:rgba(61,46,46,.18) !important;
+}
