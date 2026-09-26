@@ -1055,3 +1055,221 @@ html[data-theme="light"] .rmo-site-toggle{
     display:none;
   }
 }
+
+
+/* ---------- COMPLETE LIGHT THEME PASS ---------- */
+/* Surfaces */
+html[data-theme="light"] body,
+html[data-theme="light"] #fiction,
+html[data-theme="light"] #worlds,
+html[data-theme="light"] #reviews,
+html[data-theme="light"] #irl,
+html[data-theme="light"] #manifesto,
+html[data-theme="light"] #social-section,
+html[data-theme="light"] #subscribe,
+html[data-theme="light"] footer,
+html[data-theme="light"] .panel-dark,
+html[data-theme="light"] .panel-deeper,
+html[data-theme="light"] .fiction-nav-wrap,
+html[data-theme="light"] .fiction-hero,
+html[data-theme="light"] .fiction-hero-main,
+html[data-theme="light"] .fiction-sidebar,
+html[data-theme="light"] .fiction-item,
+html[data-theme="light"] .fiction-coming,
+html[data-theme="light"] .subgenre-strip,
+html[data-theme="light"] .subgenre-card,
+html[data-theme="light"] .world-grid,
+html[data-theme="light"] .world-entry,
+html[data-theme="light"] .worlds-coming,
+html[data-theme="light"] .rv-panel,
+html[data-theme="light"] .rv-grid,
+html[data-theme="light"] .rv-coming,
+html[data-theme="light"] .review-card,
+html[data-theme="light"] .irl-layout,
+html[data-theme="light"] .irl-aside,
+html[data-theme="light"] .irl-posts,
+html[data-theme="light"] .irl-post,
+html[data-theme="light"] .irl-coming,
+html[data-theme="light"] .manifesto-inner,
+html[data-theme="light"] .social-section-inner,
+html[data-theme="light"] .social-card,
+html[data-theme="light"] .subscribe-inner,
+html[data-theme="light"] .mini-page,
+html[data-theme="light"] .mini-hero,
+html[data-theme="light"] .mini-hero-copy,
+html[data-theme="light"] .mini-stats,
+html[data-theme="light"] .mini-stat,
+html[data-theme="light"] .mini-system,
+html[data-theme="light"] .mini-faction,
+html[data-theme="light"] .mini-card,
+html[data-theme="light"] .mini-card-body,
+html[data-theme="light"] .mini-note-box,
+html[data-theme="light"] .mini-empty,
+html[data-theme="light"] .mini-detail-page,
+html[data-theme="light"] .mini-detail-gallery,
+html[data-theme="light"] .mini-detail-info,
+html[data-theme="light"] .mini-detail-panel,
+html[data-theme="light"] .mini-detail-notes,
+html[data-theme="light"] .entry-card,
+html[data-theme="light"] .archive-empty,
+html[data-theme="light"] .empty{
+  background:#FFFDFC !important;
+  color:#27242B !important;
+}
+
+/* Slightly separated cards/panels */
+html[data-theme="light"] .fiction-item,
+html[data-theme="light"] .subgenre-card,
+html[data-theme="light"] .world-entry,
+html[data-theme="light"] .review-card,
+html[data-theme="light"] .irl-post,
+html[data-theme="light"] .social-card,
+html[data-theme="light"] .mini-faction,
+html[data-theme="light"] .mini-card,
+html[data-theme="light"] .mini-stat,
+html[data-theme="light"] .entry-card{
+  background:#F7F2EA !important;
+}
+
+html[data-theme="light"] .fiction-item:hover,
+html[data-theme="light"] .subgenre-card:hover,
+html[data-theme="light"] .world-entry:hover,
+html[data-theme="light"] .review-card:hover,
+html[data-theme="light"] .irl-post:hover,
+html[data-theme="light"] .social-card:hover,
+html[data-theme="light"] .mini-faction:hover,
+html[data-theme="light"] .mini-card:hover,
+html[data-theme="light"] .entry-card:hover{
+  background:#EEE7DD !important;
+}
+
+/* Text that was previously hard-coded as pale-on-dark */
+html[data-theme="light"] .hero-sub,
+html[data-theme="light"] .section-desc,
+html[data-theme="light"] .about-text p,
+html[data-theme="light"] .about-quote,
+html[data-theme="light"] .fiction-excerpt,
+html[data-theme="light"] .fiction-desc,
+html[data-theme="light"] .subgenre-desc,
+html[data-theme="light"] .fiction-coming-text,
+html[data-theme="light"] .world-text,
+html[data-theme="light"] .worlds-coming-text,
+html[data-theme="light"] .review-excerpt,
+html[data-theme="light"] .rv-coming-text,
+html[data-theme="light"] .irl-aside-desc,
+html[data-theme="light"] .irl-aside-note,
+html[data-theme="light"] .irl-post-body,
+html[data-theme="light"] .irl-post-mood,
+html[data-theme="light"] .manifesto-text,
+html[data-theme="light"] .manifesto-byline,
+html[data-theme="light"] .social-section-desc,
+html[data-theme="light"] .subscribe-desc,
+html[data-theme="light"] .footer-desc,
+html[data-theme="light"] .archive-desc,
+html[data-theme="light"] .archive-empty-text,
+html[data-theme="light"] .empty p,
+html[data-theme="light"] .mini-lede,
+html[data-theme="light"] .mini-card-note,
+html[data-theme="light"] .mini-empty p,
+html[data-theme="light"] .mini-note-box p,
+html[data-theme="light"] .mini-detail-panel p,
+html[data-theme="light"] .mini-detail-notes p,
+html[data-theme="light"] .entry-card-excerpt{
+  color:#615C63 !important;
+}
+
+/* Strong text/headings */
+html[data-theme="light"] .hero-title,
+html[data-theme="light"] .section-title,
+html[data-theme="light"] .fiction-title,
+html[data-theme="light"] .fiction-item-title,
+html[data-theme="light"] .subgenre-name,
+html[data-theme="light"] .world-title,
+html[data-theme="light"] .review-title,
+html[data-theme="light"] .irl-aside-title,
+html[data-theme="light"] .irl-post-title,
+html[data-theme="light"] .social-section-title,
+html[data-theme="light"] .subscribe-title,
+html[data-theme="light"] .footer-logo,
+html[data-theme="light"] .archive-title,
+html[data-theme="light"] .entry-card-title,
+html[data-theme="light"] .mini-title,
+html[data-theme="light"] .mini-system-title,
+html[data-theme="light"] .mini-faction-name,
+html[data-theme="light"] .mini-card-title,
+html[data-theme="light"] .mini-detail-title,
+html[data-theme="light"] .mini-detail-fact-value,
+html[data-theme="light"] .mini-detail-notes h2,
+html[data-theme="light"] .mini-home-group strong{
+  color:#27242B !important;
+}
+
+/* Navigation / dropdown / mobile menu */
+html[data-theme="light"] .nav-links a,
+html[data-theme="light"] .dropdown-link,
+html[data-theme="light"] .mobile-menu-links a,
+html[data-theme="light"] .nav-social-link,
+html[data-theme="light"] .mobile-menu-social a{
+  color:#625D65 !important;
+}
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .dropdown-link:hover,
+html[data-theme="light"] .mobile-menu-links a:hover,
+html[data-theme="light"] .nav-social-link:hover,
+html[data-theme="light"] .mobile-menu-social a:hover{
+  color:#242126 !important;
+}
+html[data-theme="light"] .mobile-menu{
+  background:rgba(243,239,231,.985) !important;
+}
+
+/* Form controls */
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select{
+  background:#FFFDFC !important;
+  color:#27242B !important;
+  border-color:rgba(61,46,46,.18) !important;
+}
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder{
+  color:#8A8389 !important;
+}
+
+/* Borders and separators */
+html[data-theme="light"] .fiction-hero,
+html[data-theme="light"] .fiction-sidebar,
+html[data-theme="light"] .fiction-item,
+html[data-theme="light"] .subgenre-strip,
+html[data-theme="light"] .world-grid,
+html[data-theme="light"] .review-card,
+html[data-theme="light"] .irl-post,
+html[data-theme="light"] .mini-stat,
+html[data-theme="light"] .mini-faction,
+html[data-theme="light"] .mini-card,
+html[data-theme="light"] .mini-detail-hero,
+html[data-theme="light"] .mini-detail-facts,
+html[data-theme="light"] .mini-detail-fact,
+html[data-theme="light"] .entry-card{
+  border-color:rgba(61,46,46,.12) !important;
+}
+
+/* Keep media areas visually distinct */
+html[data-theme="light"] .mini-card-media,
+html[data-theme="light"] .mini-detail-main,
+html[data-theme="light"] .mini-home-preview-image{
+  background:#E8E1D8 !important;
+}
+
+/* Loader remains dark intentionally so the opening identity stays consistent. */
+html[data-theme="light"] #loader{
+  background:#08090D !important;
+  color:#DDDAE8 !important;
+}
+
+/* Toast should also be readable in light mode. */
+html[data-theme="light"] #toast{
+  background:rgba(255,253,250,.97) !important;
+  color:#27242B !important;
+  border-color:rgba(157,45,45,.28) !important;
+}
