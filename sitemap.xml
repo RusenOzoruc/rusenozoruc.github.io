@@ -2,73 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rusenmozoruc.com/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-fantasy.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/stories/fantasy.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-scifi.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/stories/scifi.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-other.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/stories/other.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-rv-fantasy.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/reviews/fantasy.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-rv-scifi.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/reviews/scifi.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-rv-nonfiction.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/reviews/nonfiction.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-rv-other.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/reviews/other.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-world-fantasy.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/worldbuilding/fantasy.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-world-althistory.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/worldbuilding/alternate-history.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-world-scifi.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/worldbuilding/scifi.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rusenmozoruc.com/archive-irl.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://rusenmozoruc.com/irl/index.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rusenmozoruc.com/miniatures/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
