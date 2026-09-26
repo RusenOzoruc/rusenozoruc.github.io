@@ -131,16 +131,16 @@ document.addEventListener('DOMContentLoaded',()=> {
   const homepageTranslations={
     tr:{
       '#hero .hero-eyebrow':'Fantastik · Bilimkurgu · Dünya İnşası',
-      '#hero .hero-sub':'Özgün hikâyeler yazıyorum, sıfırdan dünyalar inşa ediyorum ve geceleri uykumu kaçıran kitapları inceliyorum. Geri kalanı blog yazılarına, denemelere ve YouTube videolarına taşıyorum. Eğer siz de okumak uğruna gereğinden fazla geç saatlere kadar ayakta kalıyorsanız, doğru yerdesiniz.',
+      '#hero .hero-sub':'Özgün hikâyeler yazıyorum, sıfırdan dünyalar inşa ediyorum ve beni geceleri ayakta tutan kitapları inceliyorum. Geri kalanı blog yazılarına, denemelere ve YouTube videolarına taşıyorum. Siz de okumak uğruna gereğinden fazla geç saatlere kadar ayakta kalanlardansanız, doğru yerdesiniz.',
       '#hero .hero-cta .btn-red':'Hikâyelerimi Oku',
       '#hero .hero-cta .btn-ghost':'Dünyaları Keşfet',
       '#hero .scroll-cue span':'Kaydır',
 
       '#about .section-tag':'Yazar',
       '#about .section-title':'Hakkımda',
-      '#about .about-text > p:nth-of-type(1)':'Benim adım Ruşen Mustafa Özoruç. Dünya inşasına tutkuyla bağlıyım, sıkı bir kurgu okuruyum ve bu konular hakkındaki düşüncelerimi dünyayla paylaşmayı seviyorum.',
-      '#about .about-text > p:nth-of-type(2)':'Burası kurgunun her hâli için bir alan: fantastik, bilimkurgu, korku ve türlerin arasında yaşayan her şey. İster bir yıldız denizi, ister Orta Çağ sınırı, ister hiç var olmamış bir dünyanın kıyısı olsun; bilinen ufkun ötesinde ne olduğunu soran hikâyeler için.',
-      '#about .about-text > p:nth-of-type(3)':'Burada fantastikten bilimkurguya ve ikisinin arasındaki her şeye uzanan özgün kısa hikâyelerimi bulacaksınız. Bunların yanında dünya inşası projeleri: yeni medeniyetler, tuhaf coğrafyalar ve yalnızca sayfalarda yaşayan dünyalar için yazılmış tarihler. Ayrıca okuduğum ve önemsediğim kurgu eserler üzerine dürüst, ayrıntılı incelemeler. Söyleyecek daha fazla şeyim olduğunda ise bunlar blog yazılarına, denemelere ve beni en çok heyecanlandıran konulara daha derinlemesine girdiğim YouTube videolarına dönüşüyor.',
+      '#about .about-text > p:nth-of-type(1)':'Ben Ruşen Mustafa Özoruç. Dünya inşasına tutkuyla bağlı, hevesli bir kurgu okuru ve bu konular üzerine düşündüklerimi paylaşmayı seven biriyim.',
+      '#about .about-text > p:nth-of-type(2)':'Burası kurgunun her hâline açık bir alan: fantastik, bilimkurgu, korku ve türlerin arasında kalan her şey. İster bir yıldız denizi, ister Orta Çağ sınırı, ister hiç var olmamış bir dünyanın kıyısı olsun; bilinen ufkun ötesinde ne olduğunu merak eden hikâyeler için.',
+      '#about .about-text > p:nth-of-type(3)':'Burada fantastikten bilimkurguya ve ikisinin arasındaki her şeye uzanan özgün kısa hikâyelerimi bulacaksınız. Bunların yanında dünya inşası projeleri yer alıyor: yeni medeniyetler, alışılmadık coğrafyalar ve yalnızca sayfalarda yaşayan dünyalar için yazılmış tarihler. Ayrıca okuduğum ve önemsediğim eserler üzerine dürüst, ayrıntılı incelemeler paylaşıyorum. Söyleyecek daha fazla şeyim olduğunda ise bunlar blog yazılarına, denemelere ve beni en çok heyecanlandıran konulara daha derinlemesine girdiğim YouTube videolarına dönüşüyor.',
       '#about .about-text [style*="margin-top:40px"] .section-tag':'Beni İnternette Bul',
       '#about .meta-card:nth-child(1) .meta-label':'Kısa Hikâyeler',
       '#about .meta-card:nth-child(2) .meta-label':'Dünya Projeleri',
