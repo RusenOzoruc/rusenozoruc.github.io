@@ -279,6 +279,7 @@ document.addEventListener('DOMContentLoaded',()=> {
       acceptNode(node){
         const parent=node.parentElement;
         if(!parent || ['SCRIPT','STYLE','NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        if(parent.closest('nav,.mobile-menu,.rmo-site-controls,.review-tools')) return NodeFilter.FILTER_REJECT;
         return node.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
       }
     });
@@ -555,8 +556,6 @@ document.addEventListener('DOMContentLoaded',()=> {
     ROOT.lang=lang;
     document.querySelectorAll(
       '.nav-links a,.dropdown-col-title,.dropdown-link,.mobile-menu-links a,'+
-      '.section-tag,.mini-home-kicker,.mini-home-group-label,.mini-detail-kicker,'+
-      '.mini-detail-fact-label,.mini-detail-notes-label,.mini-detail-back,'+
       '.review-result-count,.review-search option,.review-sort option'
     ).forEach(el=>rememberAndTranslate(el,lang));
 
@@ -586,6 +585,10 @@ document.addEventListener('DOMContentLoaded',()=> {
       btn.setAttribute('aria-label',value==='dark'?'Switch to light mode':'Switch to dark mode');
       btn.querySelector('.rmo-toggle-value').textContent=value==='dark'?'Dark':'Light';
     }
+
+    // Theme and language are independent. Re-assert the active language after
+    // a theme change so the whole page stays in the selected language.
+    if(ROOT.dataset.lang) translateUI(ROOT.dataset.lang);
   }
 
   function setLanguage(lang,persist=true){
@@ -633,7 +636,7 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   document.addEventListener('DOMContentLoaded',()=>{
     mountControls();
-    setTheme(localStorage.getItem(THEME_KEY)==='light'?'light':'dark',false);
     setLanguage(localStorage.getItem(LANG_KEY)||'en',false);
+    setTheme(localStorage.getItem(THEME_KEY)==='light'?'light':'dark',false);
   });
 })();
