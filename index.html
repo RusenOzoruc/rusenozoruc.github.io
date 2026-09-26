@@ -18,7 +18,6 @@
 <meta property="og:url" content="https://rusenmozoruc.com">
 <meta property="og:title" content="Ruşen M. Özoruç — Fantasy, Sci-Fi, Worldbuilding & Book Reviews">
 <meta property="og:description" content="Fantasy, sci-fi, worldbuilding and book reviews by Ruşen M. Özoruç. Original short fiction across epic fantasy, grimdark, cyberpunk, space opera and more.">
-<meta property="og:image" content="https://rusenmozoruc.com/og-image.jpg">
 <meta property="og:site_name" content="Ruşen M. Özoruç">
 <meta property="og:locale" content="en_US">
 
@@ -28,7 +27,6 @@
 <meta name="twitter:creator" content="@rusenmozoruc">
 <meta name="twitter:title" content="Ruşen M. Özoruç — Fantasy, Sci-Fi, Worldbuilding & Book Reviews">
 <meta name="twitter:description" content="Fantasy, sci-fi, worldbuilding and book reviews by Ruşen M. Özoruç.">
-<meta name="twitter:image" content="https://rusenmozoruc.com/og-image.jpg">
 
 <!-- ── STRUCTURED DATA (Google rich results) ── -->
 <script type="application/ld+json">
@@ -1433,6 +1431,8 @@ function activateTab(tab){
 
 let tabTouchMoved = false;
 document.querySelectorAll('.fiction-tab').forEach(tab=>{
+  const isPanelTab=!!(tab.dataset.panel || tab.dataset.rvpanel || tab.dataset.worldpanel);
+  if(!isPanelTab) return; // Archive links should navigate normally.
   tab.addEventListener('touchstart', ()=>{ tabTouchMoved=false; }, {passive:true});
   tab.addEventListener('touchmove', ()=>{ tabTouchMoved=true; }, {passive:true});
   tab.addEventListener('touchend', e=>{
