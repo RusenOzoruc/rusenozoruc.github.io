@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#D94444">
+<title>Page Not Found — Ruşen M. Özoruç</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,30 95,70 50,95 5,70 5,30' fill='%23D94444'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/modernization.css">
+<style>
+.error-page{position:relative;z-index:10;min-height:100vh;display:grid;place-items:center;padding:120px 24px 60px}
+.error-card{width:min(820px,100%);text-align:center;padding:68px 48px;border:1px solid var(--border);background:rgba(10,11,18,.88);backdrop-filter:blur(18px)}
+.error-code{font-family:var(--font-sans);font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red-bright);margin-bottom:18px}
+.error-title{font-family:var(--font-title);font-size:clamp(48px,8vw,94px);font-weight:300;line-height:.95;margin:0;color:var(--white)}
+.error-title em{color:var(--red-bright);font-style:italic}
+.error-desc{font-family:var(--font-title);font-size:clamp(18px,2vw,24px);font-style:italic;line-height:1.7;color:var(--parchment);max-width:620px;margin:28px auto 34px}
+.error-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+html[data-theme="light"] .error-card{background:rgba(255,253,250,.92)!important}
+html[data-theme="light"] .error-desc{color:#5E5960!important}
+@media(max-width:650px){.error-card{padding:48px 24px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Ruşen M. <span>Özoruç</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li class="nav-item">
+      <a href="index.html#fiction">Original Stories <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown"><div class="dropdown-col">
+        <div class="dropdown-col-title">Original Stories</div>
+        <a href="stories/fantasy.html" class="dropdown-link">Fantasy</a>
+        <a href="stories/scifi.html" class="dropdown-link">Science Fiction</a>
+        <a href="stories/other.html" class="dropdown-link">Other</a>
+      </div></div>
+    </li>
+    <li class="nav-item">
+      <a href="index.html#worlds">Worldbuilding <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown"><div class="dropdown-col">
+        <div class="dropdown-col-title">Worldbuilding</div>
+        <a href="worldbuilding/fantasy.html" class="dropdown-link">Fantasy Worlds</a>
+        <a href="worldbuilding/alternate-history.html" class="dropdown-link">Alternate History</a>
+        <a href="worldbuilding/scifi.html" class="dropdown-link">Science Fiction</a>
+      </div></div>
+    </li>
+    <li class="nav-item">
+      <a href="index.html#reviews">Reviews <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown"><div class="dropdown-col">
+        <div class="dropdown-col-title">Book Reviews</div>
+        <a href="reviews/fantasy.html" class="dropdown-link">Fantasy</a>
+        <a href="reviews/scifi.html" class="dropdown-link">Science Fiction</a>
+        <a href="reviews/nonfiction.html" class="dropdown-link">Non-Fiction</a>
+        <a href="reviews/other.html" class="dropdown-link">Other · History</a>
+      </div></div>
+    </li>
+    <li><a href="miniatures/index.html">Painted Miniatures</a></li>
+    <li><a href="irl/index.html">IRL</a></li>
+    <li><a href="index.html#subscribe" style="color:var(--red-bright)">Subscribe</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="error-page">
+  <section class="error-card">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page <em>Not Found</em></h1>
+    <p class="error-desc">The page you were looking for has wandered beyond the map.</p>
+    <div class="error-actions">
+      <a href="index.html" class="btn btn-red">Return Home</a>
+      <a href="index.html#fiction" class="btn btn-ghost">Explore Stories</a>
+      <a href="index.html#worlds" class="btn btn-ghost">Explore Worldbuilding</a>
+      <a href="index.html#reviews" class="btn btn-ghost">Browse Reviews</a>
+    </div>
+  </section>
+</main>
+
+<script>
+function toggleMobileMenu(){
+  const menu=document.getElementById('mobile-menu');
+  const btn=document.getElementById('hamburger');
+  menu?.classList.toggle('open');
+  btn?.classList.toggle('open');
+  document.body.style.overflow=menu?.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('mobile-menu')?.classList.remove('open');
+  document.getElementById('hamburger')?.classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+<script defer src="assets/modernization.js"></script>
+</body>
+</html>
