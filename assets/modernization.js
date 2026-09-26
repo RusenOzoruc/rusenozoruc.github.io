@@ -127,6 +127,201 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   const originalText=new WeakMap();
 
+  /* ---------- MANUAL HOMEPAGE TRANSLATIONS ---------- */
+  const homepageTranslations={
+    tr:{
+      '#hero .hero-eyebrow':'Fantastik · Bilimkurgu · Dünya İnşası',
+      '#hero .hero-sub':'Özgün hikâyeler yazıyorum, sıfırdan dünyalar inşa ediyorum ve geceleri uykumu kaçıran kitapları inceliyorum. Geri kalanı blog yazılarına, denemelere ve YouTube videolarına taşıyorum. Eğer siz de okumak uğruna gereğinden fazla geç saatlere kadar ayakta kalıyorsanız, doğru yerdesiniz.',
+      '#hero .hero-cta .btn-red':'Hikâyelerimi Oku',
+      '#hero .hero-cta .btn-ghost':'Dünyaları Keşfet',
+      '#hero .scroll-cue span':'Kaydır',
+
+      '#about .section-tag':'Yazar',
+      '#about .section-title':'Hakkımda',
+      '#about .about-text > p:nth-of-type(1)':'Benim adım Ruşen Mustafa Özoruç. Dünya inşasına tutkuyla bağlıyım, sıkı bir kurgu okuruyum ve bu konular hakkındaki düşüncelerimi dünyayla paylaşmayı seviyorum.',
+      '#about .about-text > p:nth-of-type(2)':'Burası kurgunun her hâli için bir alan: fantastik, bilimkurgu, korku ve türlerin arasında yaşayan her şey. İster bir yıldız denizi, ister Orta Çağ sınırı, ister hiç var olmamış bir dünyanın kıyısı olsun; bilinen ufkun ötesinde ne olduğunu soran hikâyeler için.',
+      '#about .about-text > p:nth-of-type(3)':'Burada fantastikten bilimkurguya ve ikisinin arasındaki her şeye uzanan özgün kısa hikâyelerimi bulacaksınız. Bunların yanında dünya inşası projeleri: yeni medeniyetler, tuhaf coğrafyalar ve yalnızca sayfalarda yaşayan dünyalar için yazılmış tarihler. Ayrıca okuduğum ve önemsediğim kurgu eserler üzerine dürüst, ayrıntılı incelemeler. Söyleyecek daha fazla şeyim olduğunda ise bunlar blog yazılarına, denemelere ve beni en çok heyecanlandıran konulara daha derinlemesine girdiğim YouTube videolarına dönüşüyor.',
+      '#about .about-text [style*="margin-top:40px"] .section-tag':'Beni İnternette Bul',
+      '#about .meta-card:nth-child(1) .meta-label':'Kısa Hikâyeler',
+      '#about .meta-card:nth-child(2) .meta-label':'Dünya Projeleri',
+      '#about .meta-card:nth-child(3) .meta-label':'İncelemeler',
+      '#about .meta-card:nth-child(4) .meta-label':'Yazılmamış Dünyalar',
+
+      '#fiction .section-tag':'Yazı Odası',
+      '#fiction .section-title':'Özgün Hikâyelerim',
+      '#fiction .section-desc':'Fantastik, bilimkurgu ve ikisinin arasındaki her türde kısa kurgu.',
+      '#fiction [data-panel="latest-stories"]':'En Yeniler',
+      '#fiction [data-panel="fantasy-stories"]':'Fantastik',
+      '#fiction [data-panel="scifi-stories"]':'Bilimkurgu',
+      '#fiction [data-panel="other-stories"]':'Diğer',
+      '#panel-latest-stories .fiction-coming-label':'✦ Tüm Türler',
+      '#panel-latest-stories .fiction-coming-text':'Henüz yayımlanmış hikâye yok. Yakında tekrar uğrayın.',
+      '#panel-latest-stories .fiction-archive-link:nth-of-type(1)':'Fantastiğe Göz At →',
+      '#panel-latest-stories .fiction-archive-link:nth-of-type(2)':'Bilimkurguya Göz At →',
+      '#panel-fantasy-stories .fiction-coming-label':'✦ Fantastik',
+      '#panel-fantasy-stories .fiction-coming-text':'Henüz fantastik hikâye yok. Yakında tekrar uğrayın.',
+      '#panel-fantasy-stories .fiction-archive-link':'Arşivi Gör →',
+      '#panel-scifi-stories .fiction-coming-label':'◈ Bilimkurgu',
+      '#panel-scifi-stories .fiction-coming-text':'Henüz bilimkurgu hikâyesi yok. Yakında tekrar uğrayın.',
+      '#panel-scifi-stories .fiction-archive-link':'Arşivi Gör →',
+      '#panel-other-stories .fiction-coming-label':'⬡ Diğer',
+      '#panel-other-stories .fiction-coming-text':'Henüz bu kategoride hikâye yok. Yakında tekrar uğrayın.',
+      '#panel-other-stories .fiction-archive-link':'Arşivi Gör →',
+      '#mobile-fiction-grid .mobile-genre-section-label':'✦ Kategoriye Göre Göz At',
+
+      '#worlds .section-tag':'Atlas',
+      '#worlds .section-title':'Özgün Dünya İnşası',
+      '#worlds .section-desc':'Yalnızca sayfalarda yaşayan dünyalar için yeni medeniyetler, tuhaf coğrafyalar ve yazılmış tarihler.',
+      '#worlds [data-worldpanel="world-latest"]':'En Yeniler',
+      '#worlds [data-worldpanel="world-fantasy"]':'Fantastik',
+      '#worlds [data-worldpanel="world-althistory"]':'Alternatif Tarih',
+      '#worlds [data-worldpanel="world-scifi"]':'Bilimkurgu',
+      '#panel-world-latest .fiction-coming-label':'⬡ En Yeniler',
+      '#panel-world-latest .fiction-coming-text':'Henüz dünya kaydı yok. Atlas çiziliyor.',
+      '#panel-world-fantasy .fiction-coming-label':'✦ Fantastik Dünyalar',
+      '#panel-world-fantasy .fiction-coming-text':'Henüz fantastik dünya yok. Atlas çiziliyor.',
+      '#panel-world-fantasy .fiction-archive-link':'Arşivi Gör →',
+      '#panel-world-althistory .fiction-coming-label':'◈ Alternatif Tarih',
+      '#panel-world-althistory .fiction-coming-text':'Henüz alternatif tarih dünyası yok. Atlas çiziliyor.',
+      '#panel-world-althistory .fiction-archive-link':'Arşivi Gör →',
+      '#panel-world-scifi .fiction-coming-label':'◈ Bilimkurgu',
+      '#panel-world-scifi .fiction-coming-text':'Henüz bilimkurgu dünyası yok. Atlas çiziliyor.',
+      '#panel-world-scifi .fiction-archive-link':'Arşivi Gör →',
+      '#mobile-worlds-grid .mobile-genre-section-label':'Dünya İnşasına Göz At',
+
+      '#reviews .section-tag':'Kütüphane',
+      '#reviews .section-title':'Kitap İncelemeleri',
+      '#reviews .section-desc':'İnceleme arşivi İngilizce ve Türkçe olarak yeniden hazırlanıyor.',
+      '#reviews .rv-coming-genre':'English + Türkçe',
+      '#reviews .rv-coming-text':'Önceki incelemeler, arşiv iki dilli olarak yeniden hazırlanırken kaldırıldı. Güncelledikçe yeni incelemeler burada tekrar yerini alacak.',
+      '#reviews .mobile-genre-section-label':'Kitap İncelemelerine Göz At',
+
+      '#miniatures .section-tag':'Boyama Masası',
+      '#miniatures .section-title':'Minyatürler',
+      '#miniatures .section-desc':'Boyama masasından çıktıktan sonra fotoğraflanıp arşivlenen Warhammer ve StarCraft minyatürleri.',
+      '#miniatures .mini-home-preview-image span':'Önizleme görseli',
+      '#miniatures .mini-home-kicker':'En Son Minyatürler',
+      '#miniatures .mini-home-preview-copy h3 a':'Minyatür Adı',
+      '#miniatures .mini-home-preview-copy p':'En yeni boyadığım minyatür burada gerçek fotoğrafı, boyanma tarihi, fraksiyon bilgileri ve kendi notlarımla birlikte yer alacak.',
+      '#miniatures .mini-home-preview-copy .btn':'Minyatür Galerisini Aç',
+      '#miniatures .mini-home-group.warhammer strong':'7 koleksiyon',
+      '#miniatures .mini-home-group.starcraft strong':'4 koleksiyon',
+
+      '#irl .irl-aside-tag':'Gerçek Hayatta',
+      '#irl .irl-aside-title':'Sayfanın Ötesinde',
+      '#irl .irl-aside-desc':'Hikâyelerin dışında kalan şeyler için bir alan: yazmak üzerine düşünceler, okuma hayatı, yaratıcı süreç ve o sıralar kafama taktığım ne varsa.',
+      '#irl .irl-aside-note':'Söylemek istediğim her şey bir incelemeye ya da hikâyeye sığmıyor. Geri kalanı burada.',
+      '#irl .irl-post-cat':'Güncelleme',
+      '#irl .irl-post-title a':'Aradan Sonra Geri Döndüm',
+      '#irl .irl-post-body':'Vay be, epey zaman geçmiş. Bir IRL yazısı yazmayalı gerçekten uzun zaman oldu; bu siteyi açmamdan neredeyse iki yıl öncesine dayanıyor. O zamanlar ücretsiz deneme sürümündeki eski bir WordPress sitesindeydim....',
+      '#irl .irl-post-link':'Yazıyı Oku →',
+
+      '#manifesto .manifesto-text':'Hikâyeler, başka türlü açıklayamadığımız şeyleri anlamlandırmanın her zaman bir yolu oldu. Kurgu, bugünden kaçıştan ibaret değildir. Bundan daha tuhaf ve daha kullanışlı bir şeydir. Kuralların yeterince farklı olduğu bir alan kurar; böylece kendi dünyamızı daha net, kendimizi ise daha dürüst görebiliriz. Gerçek dünya omuzlarımıza fazla ağır çöktüğünde de bize durabileceğimiz başka bir yer verir; oradan dönüp ona taze gözlerle bakabiliriz.',
+
+      '#subscribe .subscribe-tag':'Haberdar Ol',
+      '#subscribe .subscribe-title':'Arşive Katıl',
+      '#subscribe .subscribe-desc':'Okumaya değer bir şey yazdığımda doğrudan gelen kutunuza göndereceğim. Yeni hikâyeler, incelemeler, dünya inşası yazıları ve blog gönderileri — gürültü yok, yalnızca iyi şeyler.',
+      '#subscribe .subscribe-btn':'Abone Ol',
+      '#subscribe .subscribe-success':'✦ Aramıza katıldın. Arşive hoş geldin.',
+      '#subscribe .subscribe-note':'Spam yok. Sabit bir gönderim takvimi yok. İstediğin zaman abonelikten çıkabilirsin.',
+
+      'footer .footer-desc':'Fantastik, bilimkurgu ve spekülatif kurgu ekseninde özgün hikâyeler, dünya inşası ve kitap incelemeleri.',
+      'footer .footer-col-title:nth-of-type(1)':'Gezin',
+      'footer .footer-copy':'© 2025 Ruşen M. Özoruç — Tüm dünyaların hakları saklıdır',
+      'footer .footer-creed':'Her harita aynı zamanda bir hikâyedir'
+    }
+  };
+
+  const homepageOriginal=new Map();
+
+  function applyHomepageTranslations(lang){
+    const map=homepageTranslations[lang]||{};
+    Object.keys(map).forEach(selector=>{
+      document.querySelectorAll(selector).forEach((el,index)=>{
+        const key=selector+'::'+index;
+        if(!homepageOriginal.has(key)){
+          homepageOriginal.set(key,{
+            html:el.innerHTML,
+            text:el.textContent
+          });
+        }
+        const value=map[selector];
+        if(lang==='tr'){
+          el.textContent=value;
+        }
+      });
+    });
+
+    if(lang==='en'){
+      homepageOriginal.forEach((original,key)=>{
+        const split=key.lastIndexOf('::');
+        const selector=key.slice(0,split);
+        const index=Number(key.slice(split+2));
+        const el=document.querySelectorAll(selector)[index];
+        if(el) el.innerHTML=original.html;
+      });
+    }
+
+    // Rich text where emphasis is part of the design.
+    const rich={
+      '#about .section-title':lang==='tr'?'Hakkımda':null,
+      '#fiction .section-title':lang==='tr'?'Özgün <em>Hikâyelerim</em>':null,
+      '#worlds .section-title':lang==='tr'?'Özgün <em>Dünya İnşası</em>':null,
+      '#reviews .section-title':lang==='tr'?'Kitap <em>İncelemeleri</em>':null,
+      '#miniatures .section-title':lang==='tr'?'<em>Minyatürler</em>':null,
+      '#irl .irl-aside-title':lang==='tr'?'Sayfanın <em>Ötesinde</em>':null,
+      '#subscribe .subscribe-title':lang==='tr'?'Arşive <em>Katıl</em>':null,
+      '#manifesto .manifesto-text':lang==='tr'
+        ?'Hikâyeler, başka türlü açıklayamadığımız şeyleri anlamlandırmanın her zaman bir yolu oldu. Kurgu, bugünden kaçıştan ibaret değildir. Bundan <strong>daha tuhaf ve daha kullanışlı</strong> bir şeydir. Kuralların yeterince farklı olduğu bir alan kurar; böylece kendi dünyamızı daha net, kendimizi ise daha dürüst görebiliriz. Gerçek dünya omuzlarımıza fazla ağır çöktüğünde de bize durabileceğimiz başka bir yer verir; oradan dönüp ona <strong>taze gözlerle</strong> bakabiliriz.'
+        :null
+    };
+    Object.entries(rich).forEach(([selector,value])=>{
+      const el=document.querySelector(selector);
+      if(!el) return;
+      const key='rich:'+selector;
+      if(!homepageOriginal.has(key)) homepageOriginal.set(key,{html:el.innerHTML,text:el.textContent});
+      if(lang==='tr' && value!==null) el.innerHTML=value;
+      if(lang==='en') el.innerHTML=homepageOriginal.get(key).html;
+    });
+
+    // Repeated labels/cards that are easier to handle by exact English copy.
+    const exactTr={
+      'Fantasy':'Fantastik',
+      'Science Fiction':'Bilimkurgu',
+      'Non-Fiction':'Kurgu Dışı',
+      'Other':'Diğer',
+      'Other · History':'Diğer · Tarih',
+      'Fantasy Worlds':'Fantastik Dünyalar',
+      'Alternate History':'Alternatif Tarih',
+      'Browse →':'Göz At →',
+      'Latest':'En Yeniler',
+      'Reviews':'İncelemeler',
+      'Original Stories':'Özgün Hikâyelerim',
+      'Worldbuilding':'Dünya İnşası',
+      'Book Reviews':'Kitap İncelemeleri',
+      'Navigate':'Gezin',
+      'Terrain':'Arazi'
+    };
+    document.querySelectorAll(
+      '#fiction .mobile-genre-card-name,#fiction .mobile-genre-card-arrow,'+
+      '#worlds .mobile-genre-card-name,#worlds .mobile-genre-card-arrow,'+
+      '#reviews .mobile-genre-card-name,#reviews .mobile-genre-card-arrow,'+
+      'footer .footer-col-title,footer .footer-links a'
+    ).forEach(el=>{
+      const key='exact:'+Array.from(document.querySelectorAll(
+        '#fiction .mobile-genre-card-name,#fiction .mobile-genre-card-arrow,'+
+        '#worlds .mobile-genre-card-name,#worlds .mobile-genre-card-arrow,'+
+        '#reviews .mobile-genre-card-name,#reviews .mobile-genre-card-arrow,'+
+        'footer .footer-col-title,footer .footer-links a'
+      )).indexOf(el);
+      if(!homepageOriginal.has(key)) homepageOriginal.set(key,{html:el.innerHTML,text:el.textContent});
+      const original=homepageOriginal.get(key).text.trim();
+      if(lang==='tr' && exactTr[original]) el.textContent=exactTr[original];
+      if(lang==='en') el.innerHTML=homepageOriginal.get(key).html;
+    });
+  }
+
+
   function rememberAndTranslate(el,lang){
     if(!el || el.children.length) return;
     const raw=(el.textContent||'').trim();
@@ -165,6 +360,7 @@ document.addEventListener('DOMContentLoaded',()=> {
     const sort=document.querySelector('.review-sort');
     if(sort) sort.setAttribute('aria-label',lang==='tr'?'İncelemeleri sırala':'Sort reviews');
 
+    applyHomepageTranslations(lang);
     document.dispatchEvent(new CustomEvent('rmo:languagechange',{detail:{lang}}));
   }
 
