@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="../">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#D94444">
+<title>Miniature Preview — Painted Miniatures — Ruşen M. Özoruç</title>
+<meta name="description" content="Preview layout for an individual painted miniature entry.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{--ink:#08090D;--deep:#0C0D14;--surface:#111320;--border:rgba(220,150,150,.1);--border-hi:rgba(220,150,150,.25);--red:#B83232;--red-bright:#D94444;--red-dim:rgba(184,50,50,.12);--violet:#7B6FE8;--teal:#3BBFB0;--parchment:#EDE0C4;--white:#DDDAE8;--muted:#7A788A;--font-title:'Source Serif 4',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--white);font-family:var(--font-sans);overflow-x:hidden}
+#mini-detail-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:15px 34px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,13,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;width:58px;height:58px}.nav-logo img{width:100%;height:100%;object-fit:contain}.mini-detail-nav{display:flex;gap:22px}.mini-detail-nav a{font:700 10px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none}.mini-detail-nav a:hover{color:var(--white)}
+@media(max-width:650px){nav{padding:12px 18px}.nav-logo{width:48px;height:48px}.mini-detail-nav{gap:12px}.mini-detail-nav a{font-size:8px}}
+</style>
+<link rel="stylesheet" href="assets/modernization.css">
+<link rel="stylesheet" href="assets/miniature-detail.css">
+</head>
+<body>
+<canvas id="mini-detail-bg"></canvas>
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Ruşen M. Özoruç — Home"><img src="assets/logo-rmo.svg" alt="Ruşen M. Özoruç logo"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+
+    <li class="nav-item">
+      <a href="index.html#fiction">Original Stories <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Original Stories</div>
+          <a href="stories/fantasy.html" class="dropdown-link" style="color:#D94444">Fantasy</a>
+          <a href="stories/scifi.html" class="dropdown-link" style="color:#3BBFB0">Science Fiction</a>
+          <a href="stories/other.html" class="dropdown-link" style="color:#7B6FE8">Other</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="index.html#worlds">Worldbuilding <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Worldbuilding</div>
+          <a href="worldbuilding/fantasy.html" class="dropdown-link" style="color:#D94444">Fantasy Worlds</a>
+          <a href="worldbuilding/alternate-history.html" class="dropdown-link" style="color:#3BBFB0">Alternate History</a>
+          <a href="worldbuilding/scifi.html" class="dropdown-link" style="color:#7B6FE8">Science Fiction</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="index.html#reviews">Reviews <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Book Reviews</div>
+          <a href="reviews/fantasy.html" class="dropdown-link" style="color:#D94444">Fantasy</a>
+          <a href="reviews/scifi.html" class="dropdown-link" style="color:#3BBFB0">Science Fiction</a>
+          <a href="reviews/nonfiction.html" class="dropdown-link" style="color:#7B6FE8">Non-Fiction</a>
+          <a href="reviews/other.html" class="dropdown-link" style="color:#7A788A">Other</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="miniatures/index.html">Painted Miniatures <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown mini-nav-dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title" style="color:var(--red-bright)">Warhammer</div>
+          <a href="miniatures/index.html#world-eaters" class="dropdown-link">World Eaters</a>
+          <a href="miniatures/index.html#emperors-children" class="dropdown-link">Emperor's Children</a>
+          <a href="miniatures/index.html#adeptus-astartes" class="dropdown-link">Adeptus Astartes</a>
+          <a href="miniatures/index.html#orks" class="dropdown-link">Orks</a>
+          <a href="miniatures/index.html#death-guard" class="dropdown-link">Death Guard</a>
+          <a href="miniatures/index.html#thousand-sons" class="dropdown-link">Thousand Sons</a>
+          <a href="miniatures/index.html#warhammer-terrain" class="dropdown-link">Terrain</a>
+          <div class="dropdown-col-title" style="color:var(--teal);margin-top:10px">StarCraft</div>
+          <a href="miniatures/index.html#terran" class="dropdown-link">Terran</a>
+          <a href="miniatures/index.html#zerg" class="dropdown-link">Zerg</a>
+          <a href="miniatures/index.html#protoss" class="dropdown-link">Protoss</a>
+          <a href="miniatures/index.html#terrain" class="dropdown-link">Terrain</a>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="irl/index.html">IRL</a></li>
+    <li><a href="index.html#subscribe" style="color:var(--red-bright)">Subscribe</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-social">
+      <a href="https://www.instagram.com/rusenmozoruc/" target="_blank" class="nav-social-link" title="Instagram">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@rusenmozoruc" target="_blank" class="nav-social-link" title="TikTok">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@rusenmozoruc" target="_blank" class="nav-social-link" title="YouTube">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://x.com/rusenmozoruc" target="_blank" class="nav-social-link" title="X">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.goodreads.com/user/show/108624616-rusen-zoru" target="_blank" class="nav-social-link" title="Goodreads">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-links">
+    <li><a href="index.html#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="index.html#fiction" onclick="closeMobileMenu()">Original <em>Stories</em></a></li>
+    <li><a href="index.html#worlds" onclick="closeMobileMenu()">Worldbuilding</a></li>
+    <li><a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+    <li><a href="miniatures/index.html" onclick="closeMobileMenu()">Painted <em>Miniatures</em></a></li>
+    <li><a href="irl/index.html" onclick="closeMobileMenu()">IRL</a></li>
+    <li><a href="index.html#subscribe" onclick="closeMobileMenu()" style="color:var(--red-bright)">Subscribe</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <div class="mobile-menu-social">
+      <a href="https://www.instagram.com/rusenmozoruc/" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://www.tiktok.com/@rusenmozoruc" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+      <a href="https://www.youtube.com/@rusenmozoruc" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://x.com/rusenmozoruc" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.goodreads.com/user/show/108624616-rusen-zoru" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M19.525 15.977V.49h-2.059v2.906h-.064a5.198 5.198 0 00-1.936-2.37 5.197 5.197 0 00-2.807-.83c-1.01 0-1.94.278-2.79.837a5.717 5.717 0 00-1.975 2.313 8.017 8.017 0 00-.718 3.478c0 1.192.217 2.306.652 3.342a5.715 5.715 0 001.875 2.445 4.756 4.756 0 002.882.906 5.43 5.43 0 002.764-.724 5.013 5.013 0 001.93-2.153h.064v2.47c0 1.775-.404 3.116-1.21 4.026-.807.91-2.026 1.364-3.656 1.364a6.72 6.72 0 01-2.24-.39 4.994 4.994 0 01-1.82-1.102l-1.21 1.71a6.765 6.765 0 002.41 1.4 9.269 9.269 0 003.02.5c2.222 0 3.912-.596 5.067-1.786 1.155-1.19 1.733-2.955 1.733-5.295zm-7.24-1.715a3.43 3.43 0 01-1.895-.547 3.637 3.637 0 01-1.297-1.578 5.643 5.643 0 01-.466-2.353c0-.87.155-1.658.466-2.362a3.785 3.785 0 011.3-1.633 3.352 3.352 0 011.896-.596c.7 0 1.34.2 1.918.598.578.4 1.035.965 1.37 1.695.336.73.504 1.55.504 2.457 0 .902-.168 1.714-.503 2.437a3.908 3.908 0 01-1.37 1.67 3.32 3.32 0 01-1.923.61z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="mini-detail-page">
+  <div class="mini-detail-shell">
+    <a class="mini-detail-back" href="miniatures/index.html">← Back to miniature gallery</a>
+
+    <section class="mini-detail-hero">
+      <div class="mini-detail-gallery">
+        <div class="mini-detail-main">
+          <img id="mini-detail-main-image" src="assets/mini-placeholder-red.svg" alt="Placeholder miniature main photo">
+          <span class="mini-detail-preview-badge">Preview entry</span>
+        </div>
+        <div class="mini-detail-thumbs">
+          <button class="mini-detail-thumb active" data-src="assets/mini-placeholder-red.svg" aria-label="View photo one"><img src="assets/mini-placeholder-red.svg" alt=""></button>
+          <button class="mini-detail-thumb" data-src="assets/mini-placeholder-violet.svg" aria-label="View photo two"><img src="assets/mini-placeholder-violet.svg" alt=""></button>
+          <button class="mini-detail-thumb" data-src="assets/mini-placeholder-teal.svg" aria-label="View photo three"><img src="assets/mini-placeholder-teal.svg" alt=""></button>
+        </div>
+      </div>
+
+      <div class="mini-detail-info">
+        <div class="mini-detail-kicker"><img class="mini-detail-faction-logo" src="assets/faction-icons/world-eaters.svg" alt="">Warhammer 40,000 · World Eaters</div>
+        <h1 class="mini-detail-title">Miniature Name</h1>
+        <div class="mini-detail-sub">Individual miniature page preview</div>
+
+        <div class="mini-detail-facts">
+          <div class="mini-detail-fact"><div class="mini-detail-fact-label">Painted</div><div class="mini-detail-fact-value">DD MMM YYYY</div></div>
+          <div class="mini-detail-fact"><div class="mini-detail-fact-label">Faction</div><div class="mini-detail-fact-value">World Eaters</div></div>
+          <div class="mini-detail-fact"><div class="mini-detail-fact-label">Game</div><div class="mini-detail-fact-value">Warhammer 40K</div></div>
+          <div class="mini-detail-fact"><div class="mini-detail-fact-label">Photos</div><div class="mini-detail-fact-value">3</div></div>
+        </div>
+
+        <div class="mini-detail-note-callout">PLACEHOLDER DATA — this page is only showing how a real miniature entry will look.</div>
+      </div>
+    </section>
+
+    <section class="mini-detail-body">
+      <article class="mini-detail-panel mini-detail-notes">
+        <div class="mini-detail-notes-label">From the painting desk</div>
+        <h2>Painting Notes</h2>
+        <p>This is where your own note about the miniature will live. It can be short, or it can become a full painting journal entry when a model deserves more space.</p>
+        <p>You can write about the colour scheme, techniques you tried, mistakes you made, details you are proud of, what you would change next time, basing choices, or simply what the model was like to paint.</p>
+        <p>When this becomes a real miniature page, this entire area is yours. There is no fixed template forcing you to fill in technical fields you do not care about.</p>
+      </article>
+    </section>
+  </div>
+</main>
+<script src="assets/miniature-detail.js"></script>
+<script>
+function toggleMobileMenu(){
+  const menu=document.getElementById('mobile-menu');
+  const btn=document.getElementById('hamburger');
+  menu?.classList.toggle('open');
+  btn?.classList.toggle('open');
+  document.body.style.overflow=menu?.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('mobile-menu')?.classList.remove('open');
+  document.getElementById('hamburger')?.classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+<script defer src="assets/modernization.js"></script>\n</body>
+</html>
