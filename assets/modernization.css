@@ -1261,10 +1261,21 @@ html[data-theme="light"] .mini-home-preview-image{
   background:#E8E1D8 !important;
 }
 
-/* Loader remains dark intentionally so the opening identity stays consistent. */
+/* Loader follows the selected site theme. */
 html[data-theme="light"] #loader{
-  background:#08090D !important;
-  color:#DDDAE8 !important;
+  background:#F3EFE7 !important;
+  color:#27242B !important;
+}
+
+html[data-theme="light"] #loader .loader-text,
+html[data-theme="light"] #loader .loader-sub,
+html[data-theme="light"] #loader .loader-label{
+  color:#5E5960 !important;
+}
+
+html[data-theme="light"] #loader svg,
+html[data-theme="light"] #loader .d20-icon{
+  color:#A92F2F !important;
 }
 
 /* Toast should also be readable in light mode. */
